@@ -103,19 +103,6 @@
             transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.9s ease;
         }
 
-        /* Wax-seal drop simulation */
-        .wax-seal-drop {
-            transform: scale(2.5) rotate(-15deg);
-            opacity: 0;
-            filter: blur(4px);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, filter 0.2s;
-        }
-        .wax-seal-drop.applied {
-            transform: scale(1) rotate(6deg);
-            opacity: 1;
-            filter: blur(0);
-        }
-
         .no-select {
             user-select: none;
             -webkit-user-drag: none;
@@ -333,9 +320,6 @@
                         <p>
                             This digital project shifts traditional gallery website patterns. Instead of viewing isolated frame assets, the interface organizes the paintings as structured components of an interactive journal desk. These frames suspended in the 3D portal contain the exact visual and mathematical rules designed by the master artists.
                         </p>
-                        <p>
-                            From the psychological distortion vectors of Francis Bacon to the divine grid geometries of Leonardo Da Vinci, each room explores key landmarks of artistic storytelling. Hovering over any frame reveals the underlying structural blueprint, allowing visitors to examine compositions through a classical scholar's perspective.
-                        </p>
                     </div>
 
                     <div class="mt-10 pt-6 border-t border-champagne-500/15 flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -530,7 +514,6 @@
                     <div class="border-t border-champagne-500/20 pt-4 text-xs font-sans text-champagne-400 space-y-1">
                         <p><strong class="font-cinzel text-[10px]">Anomalous Target:</strong> Remote Artwork Repositories</p>
                         <p><strong class="font-cinzel text-[10px]">Vault Source:</strong> Collection of Stories Database</p>
-                        <p><strong class="font-cinzel text-[10px]">Emergency Backup:</strong> SVG Blueprints Loaded Automatically</p>
                     </div>
                     <button onclick="navigateTo('gallery')" class="inline-block px-6 py-2.5 bg-champagne-500/20 hover:bg-champagne-500/35 border border-champagne-500/30 text-champagne-100 font-cinzel text-[9px] tracking-[0.25em] uppercase rounded transition-all duration-300">
                         Return to Gallery Wall
@@ -605,13 +588,6 @@
 
     <!-- GALLERY & COLLECTION RETROSPECTIVE DATA -->
     <script>
-        // High fidelity fallbacks dynamically drawn as SVG in case external source links fail.
-        function getBlueprintFallback(title, artist) {
-            const cleanTitle = encodeURIComponent(title);
-            const cleanArtist = encodeURIComponent(artist);
-            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 100 125" style="background-color:%2311100F;"><g stroke="%23C2A38E" stroke-width="0.15" fill="none" opacity="0.65"><rect x="5" y="5" width="90" height="115" stroke-width="0.3"/><circle cx="50" cy="55" r="35" stroke-dasharray="2,2"/><line x1="5" y1="55" x2="95" y2="55"/><line x1="50" y1="5" x2="50" y2="120"/><polygon points="50,10 85,110 15,110" stroke-opacity="0.3"/><path d="M 15 55 Q 50 15 85 55 T 15 55" stroke-dasharray="1,1"/><text x="50" y="25" font-family="Cinzel, serif" font-size="3" fill="%23DAC6B5" text-anchor="middle" letter-spacing="0.5">${cleanArtist}</text><text x="50" y="105" font-family="Cormorant Garamond, serif" font-size="2.5" font-style="italic" fill="%23C2A38E" text-anchor="middle">${cleanTitle}</text></g></svg>`;
-        }
-
         const collection = [
             {
                 id: "bacon",
@@ -800,7 +776,6 @@
             collection.forEach((item, idx) => {
                 let diff = idx - activeIndex;
                 
-                // Circular scroll wrapping
                 if (diff < -2) diff += collection.length;
                 if (diff > 2) diff -= collection.length;
 
@@ -841,13 +816,10 @@
                     }
                 };
 
-                // Floating frame structure incorporating blueprints on hover
                 card.innerHTML = `
                     <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-                        <!-- Raw Picture Frame Image -->
-                        <img src="${item.frameUrl}" alt="${item.name}" class="w-full h-full object-contain pointer-events-none select-none transition-all duration-700 group-hover:opacity-[0.05] group-hover:scale-105" onerror="triggerEmergencyRoom(this)">
+                        <img src="${item.frameUrl}" alt="${item.name}" class="w-full h-full object-contain pointer-events-none select-none transition-all duration-700 group-hover:opacity-[0.05] group-hover:scale-105">
                         
-                        <!-- Mathematical golden ratio and blueprint drawings inside frame bounds -->
                         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-4">
                             <svg class="w-24 h-24 text-champagne-500/35 animate-pulse absolute pointer-events-none" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="0.35">
                                 <circle cx="50" cy="50" r="38" stroke-dasharray="2,2"/>
@@ -862,7 +834,6 @@
 
                 anchor.appendChild(card);
 
-                // Elegant indicator markers
                 const dot = document.createElement('button');
                 dot.className = `w-1.5 h-1.5 rounded-full border border-champagne-500/40 transition-all duration-300 focus:outline-none ${isCenter ? 'bg-champagne-500 w-4' : 'bg-transparent'}`;
                 dot.onclick = (e) => {
@@ -873,7 +844,6 @@
                 dots.appendChild(dot);
             });
 
-            // Sync dynamic labels at top desk
             const currentItem = collection[activeIndex];
             document.getElementById('active-artist-tag').textContent = currentItem.name;
             document.getElementById('active-artist-era').textContent = `${currentItem.era} • ${currentItem.dates}`;
@@ -884,7 +854,6 @@
             render3DDesk();
         }
 
-        // Interactive Artist Search Logic (Header Level)
         function filterArtists(query) {
             const dropdown = document.getElementById('search-results-dropdown');
             if (!dropdown) return;
@@ -926,7 +895,6 @@
             render3DDesk();
             navigateTo('gallery');
 
-            // Clear search input and dropdown
             const input = document.getElementById('artist-search');
             if (input) input.value = '';
             const dropdown = document.getElementById('search-results-dropdown');
@@ -936,7 +904,6 @@
             }
         }
 
-        // Close search dropdown on click outside
         document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('search-results-dropdown');
             const searchInput = document.getElementById('artist-search');
@@ -945,13 +912,11 @@
             }
         });
 
-        // Trigger gorgeous left-aligned error page if assets fail to load
         function triggerEmergencyRoom(imgEl) {
-            console.error("Asset failed to retrieve. Opening visual restoration room...");
+            console.error("Asset failed to retrieve.");
             navigateTo('error');
         }
 
-        // Mouse displacement for subtle 3D parallax coordinates tilt
         const sceneEl = document.getElementById('room-gallery');
         
         sceneEl.addEventListener('mousemove', (e) => {
@@ -975,7 +940,6 @@
             }
         });
 
-        // Swipe support
         let touchStart = 0;
         sceneEl.addEventListener('touchstart', e => {
             touchStart = e.changedTouches[0].screenX;
@@ -996,7 +960,6 @@
             wipe.classList.add('translate-y-0');
 
             setTimeout(() => {
-                // Hide and translate all sections completely off-screen
                 ['gallery', 'exhibition', 'dossier', 'contact', 'error'].forEach(id => {
                     const el = document.getElementById(`room-${id}`);
                     if (el) {
@@ -1007,13 +970,11 @@
                     }
                 });
 
-                // Clear button active indicators
                 ['gallery-btn', 'dossier-btn', 'contact-btn', 'error-btn'].forEach(id => {
                     const btn = document.getElementById(`nav-${id}`);
                     if (btn) btn.classList.remove('text-champagne-300', 'font-semibold');
                 });
 
-                // Display and center targeted room completely
                 const activeEl = document.getElementById(`room-${targetRoom}`);
                 if (activeEl) {
                     activeEl.classList.remove('hidden');
@@ -1044,23 +1005,25 @@
                 artist.paintings.forEach((art, idx) => {
                     const itemContainer = document.createElement('div');
                     
-                    // Staggered gallery layout
                     const staggerValue = idx % 2 === 0 ? 'translate-y-0' : 'md:translate-y-8';
                     itemContainer.className = `flex flex-col items-center space-y-6 ${staggerValue} w-full`;
                     
-                    const fallbackImg = getBlueprintFallback(art.title, artist.name);
-
-                    // Removed ALL hover templates, overlay captions, text elements, blueprint svgs, and side descriptions.
-                    // The block above the title plaque now renders strictly as a pure aesthetic painting asset thumbnail.
+                    // Fixed: Cleaned up structural logic down to a raw interactive presentation image thumbnail stack.
+                    // Embedded a matte neutral dark presentation field behind images with an elegant loading spinner overlay.
                     itemContainer.innerHTML = `
                         <!-- Museum Framed Painting Container -->
                         <div onclick="openMasterpiece(${idx})" class="museum-picture-frame cursor-zoom-in transition-all duration-500 hover:scale-[1.03] group max-w-full">
-                            <!-- Inner brass trim liner -->
-                            <div class="museum-frame-gold-trim flex items-center justify-center overflow-hidden relative w-[200px] h-[240px] sm:w-[240px] sm:h-[280px]">
-                                <img class="w-full h-full object-cover animate__animated animate__fadeIn relative z-10" 
+                            <!-- Inner dark presentation field panel -->
+                            <div class="museum-frame-gold-trim flex items-center justify-center overflow-hidden relative w-[200px] h-[240px] sm:w-[240px] sm:h-[280px] bg-obsidian-900">
+                                
+                                <!-- Standby loading element wrapper -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                                    <i class="fa-solid fa-spinner text-xs text-champagne-500/20 animate-spin"></i>
+                                </div>
+
+                                <img class="w-full h-full object-contain animate__animated animate__fadeIn relative z-10 p-2" 
                                      src="${art.imageUrl}" 
-                                     alt="${art.title}" 
-                                     onerror="this.onerror=null; this.src='${fallbackImg}';">
+                                     alt="${art.title}">
                             </div>
                             
                             <!-- Classic hanging wire visual simulation at the top -->
@@ -1092,13 +1055,6 @@
             const zoomImg = document.getElementById('zoom-painting-img');
             if(zoomImg) {
                 zoomImg.src = art.imageUrl;
-                
-                // Apply blueprint drawing dynamic fallback if main fails in zoom container
-                const fallbackImg = getBlueprintFallback(art.title, artist.name);
-                zoomImg.onerror = function() {
-                    this.onerror = null;
-                    this.src = fallbackImg;
-                };
             }
 
             document.getElementById('zoom-painting-title').textContent = art.title;
@@ -1164,7 +1120,6 @@
         window.onload = function() {
             render3DDesk();
             
-            // Listen for any unhandled image loading errors to gracefully prompt the restoration/error status chamber
             window.addEventListener('error', function(e) {
                 if (e.target && e.target.tagName === 'IMG') {
                     console.log("Global Asset Failure caught:", e.target.src);
