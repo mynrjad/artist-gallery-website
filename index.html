@@ -91,7 +91,7 @@
 
         /* Immersive 3D Space Controllers */
         .perspective-desk {
-            perspective: 2500px;
+            perspective: 3000px;
         }
         .tilt-wrapper {
             transform-style: preserve-3d;
@@ -101,17 +101,6 @@
         /* Room Transition Wipes */
         .room-shutter {
             transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.9s ease;
-        }
-
-        /* Blueprint Path Draw Simulation */
-        @keyframes blueprintDraw {
-            from { stroke-dashoffset: 1200; }
-            to { stroke-dashoffset: 0; }
-        }
-        .blueprint-sketch-path {
-            stroke-dasharray: 1200;
-            stroke-dashoffset: 1200;
-            animation: blueprintDraw 12s linear infinite alternate;
         }
 
         /* Wax-seal drop simulation */
@@ -132,7 +121,26 @@
             -webkit-user-drag: none;
         }
 
-        /* High-DPI, 2K & 4K Ultra-Wide Screen Responsive Scaler */
+        /* Asymmetric Structural Museum Frame Designs */
+        .museum-picture-frame {
+            position: relative;
+            background: #1e1b18;
+            padding: 16px;
+            box-shadow: 
+                0 0 0 4px #11100f, 
+                0 4px 0 #090808, 
+                0 12px 24px rgba(0,0,0,0.8),
+                inset 0 0 20px rgba(0,0,0,0.9);
+            border: 1px solid #33241a;
+        }
+        .museum-frame-gold-trim {
+            background: #0d0c0b;
+            border: 2px solid #7f5f49;
+            box-shadow: inset 0 0 10px #000;
+            position: relative;
+        }
+
+        /* Enhanced High-DPI, 2K & 4K Ultra-Wide Screen Responsive Scaler */
         .carousel-scaler {
             transform: scale(1);
             transform-origin: center center;
@@ -148,16 +156,16 @@
             .carousel-scaler { transform: scale(1.6); }
         }
         @media (min-width: 2560px) { /* QHD & 4K Standard Screen Adjustments */
-            .carousel-scaler { transform: scale(2.1); }
-            #active-artist-tag { font-size: 4.5rem !important; }
-            #active-artist-era { font-size: 0.8rem !important; }
-            #artist-search { font-size: 0.75rem !important; padding: 0.75rem 1rem 0.75rem 2.5rem !important; }
-            #search-results-dropdown { font-size: 0.75rem !important; max-h-56 !important; }
+            .carousel-scaler { transform: scale(2.2); }
+            #active-artist-tag { font-size: 5rem !important; }
+            #active-artist-era { font-size: 0.9rem !important; }
+            #artist-search { font-size: 0.8rem !important; padding: 0.75rem 1rem 0.75rem 2.5rem !important; }
+            #search-results-dropdown { font-size: 0.8rem !important; max-height: 24rem !important; }
         }
-        @media (min-width: 3840px) { /* Ultra 4K Displays */
-            .carousel-scaler { transform: scale(3.0); }
-            #active-artist-tag { font-size: 6.5rem !important; }
-            #active-artist-era { font-size: 1.1rem !important; }
+        @media (min-width: 3840px) { /* Ultra 4K Widescreen Displays */
+            .carousel-scaler { transform: scale(3.2); }
+            #active-artist-tag { font-size: 7.5rem !important; }
+            #active-artist-era { font-size: 1.3rem !important; }
         }
     </style>
 </head>
@@ -237,9 +245,9 @@
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
 
-                    <!-- The Interactive Frame Anchor with responsive 4K Scaler -->
+                    <!-- The Interactive Frame Anchor with enhanced responsive 4K Scaler -->
                     <div class="carousel-scaler">
-                        <div id="floating-frames-anchor" class="tilt-wrapper relative w-[240px] sm:w-[320px] h-[300px] sm:h-[400px] flex items-center justify-center">
+                        <div id="floating-frames-anchor" class="tilt-wrapper relative w-[260px] sm:w-[320px] h-[320px] sm:h-[400px] flex items-center justify-center">
                             <!-- Populated programmatically with raw frame files -->
                         </div>
                     </div>
@@ -258,7 +266,7 @@
             </div>
 
             <!-- 2. ARTIST EXHIBITION ROOM -->
-            <div id="room-exhibition" class="absolute inset-0 w-full h-full flex-col transition-all duration-1000 transform translate-x-full hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(9, 8, 8, 0.96), rgba(9, 8, 8, 0.96)), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
+            <div id="room-exhibition" class="absolute inset-0 w-full h-full flex flex-col transition-all duration-1000 transform translate-x-full hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(9, 8, 8, 0.96), rgba(9, 8, 8, 0.96)), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
                 
                 <!-- Room wallpaper stripes -->
                 <div class="absolute inset-0 pointer-events-none museum-wallpaper opacity-35 mix-blend-overlay"></div>
@@ -421,10 +429,10 @@
                             <div>
                                 <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold mb-2">Follow Us</p>
                                 <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-obsidian-950/70">
-                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Facebook Link"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Instagram Link"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Behance Link"><i class="fa-brands fa-behance"></i> Behance</a>
-                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="GitHub Link"><i class="fa-brands fa-github"></i> GitHub</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors"><i class="fa-brands fa-behance"></i> Behance</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors"><i class="fa-brands fa-github"></i> GitHub</a>
                                 </div>
                             </div>
 
@@ -571,7 +579,7 @@
                         <div class="space-y-6">
                             <div class="border-b border-champagne-500/15 pb-4 relative">
                                 <span class="absolute -top-4 right-0 font-calligraphy text-xl text-champagne-700 select-none">- Exhibition Catalog</span>
-                                <h3 id="zoom-painting-title" class="font-cinzel text-base md:text-lg text-obsidian-950 font-semibold tracking-wider">Mona Lisa</h3>
+                                <h3 id="zoom-painting-title" class="font-cinzel text-base md:text-lg text-obsidian-950 font-semibold tracking-wider font-bold">Mona Lisa</h3>
                                 <p id="zoom-painting-span" class="text-champagne-700 font-cinzel text-[8px] tracking-[0.2em] uppercase mt-0.5 font-bold">CIRCULATION • 1503</p>
                             </div>
 
@@ -631,7 +639,7 @@
                         year: "1953",
                         medium: "Oil on canvas",
                         location: "Des Moines Art Center, Iowa",
-                        imageUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/study%20of%20velazques.jpg?raw=true",
                         analysis: "A study of isolation and screaming torment. Bacon isolates the screaming papal figure inside a cage of raw perspective lines, exploring institutional anxiety."
                     },
                     {
@@ -639,7 +647,7 @@
                         year: "1944",
                         medium: "Oil and pastel on board",
                         location: "Tate Britain, London",
-                        imageUrl: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/three%20figures.png?raw=true",
                         analysis: "Bacon's legendary post-war triptych. Shows distorted, screaming mythological beast structures acting as sentinels of existential grief."
                     },
                     {
@@ -647,7 +655,7 @@
                         year: "1971",
                         medium: "Oil on canvas",
                         location: "Private Collection",
-                        imageUrl: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/francis-bacon--self-portrait.jpg?raw=true",
                         analysis: "Painted in absolute isolation after the death of George Dyer. Features fluid, distorted facial shapes reflecting aging and psychological wear."
                     }
                 ]
@@ -665,7 +673,7 @@
                         year: "c. 1503 – 1519",
                         medium: "Oil on Poplar wood",
                         location: "Musée du Louvre, Paris",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/402px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Mona_Lisa.png?raw=true",
                         analysis: "The most famous portrait in human history. Shows Leonardo's signature sfumato brushwork, blending light and shadow to construct her legendary, enigmatic expression."
                     },
                     {
@@ -673,7 +681,7 @@
                         year: "1495 – 1498",
                         medium: "Tempera on gesso, pitch, and mastic",
                         location: "Santa Maria delle Grazie, Milan",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Última_Cena_-_da_Vinci_5.jpg/800px-Última_Cena_-_da_Vinci_5.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/last%20supper.jpg?raw=true",
                         analysis: "A monumental achievement in perspective rendering. Captures the high-tension second when Christ announces an impending betrayal."
                     },
                     {
@@ -681,7 +689,7 @@
                         year: "c. 1489 – 1490",
                         medium: "Oil on walnut panel",
                         location: "Czartoryski Museum, Kraków",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg/528px-Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Lady-with-an-Ermine-by-Leonardo-Da-Vinci-23-by-15-oil-on-canvas.jpg?raw=true",
                         analysis: "A stunning portrait of Cecilia Gallerani, showcasing the artist's unparalleled ability to map bone structure, posture, and soft animal textures."
                     }
                 ]
@@ -699,7 +707,7 @@
                         year: "1872",
                         medium: "Oil on canvas",
                         location: "Musée Marmottan Monet, Paris",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/800px-Monet_-_Impression%2C_Sunrise.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Impression%20sunrise.png?raw=true",
                         analysis: "The painting that gave Impressionism its name. Captures the industrial port of Le Havre through loose, active brushstrokes and immediate colors."
                     },
                     {
@@ -707,7 +715,7 @@
                         year: "c. 1916",
                         medium: "Oil on canvas",
                         location: "Musée de l'Orangerie, Paris",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Claude_Monet_-_Water_Lilies_-_Google_Art_Project_2.jpg/771px-Claude_Monet_-_Water_Lilies_-_Google_Art_Project_2.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Water%20lillies.png?raw=true",
                         analysis: "One of his ultimate water garden pieces. Monet dissolves the traditional horizon line, wrapping the viewer in immersive reflections of sky and water."
                     },
                     {
@@ -715,7 +723,7 @@
                         year: "1875",
                         medium: "Oil on canvas",
                         location: "National Gallery of Art, Washington D.C.",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg/527px-Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/woman%20with%20parasol.jpg?raw=true",
                         analysis: "Features his wife Camille and son Jean, exploring natural sunlight catching fabrics and wind motions on an open, breezy hill."
                     }
                 ]
@@ -733,23 +741,23 @@
                         year: "1889",
                         medium: "Oil on canvas",
                         location: "Museum of Modern Art, New York",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/757px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/starry%20night.jpg?raw=true",
                         analysis: "Completed in the Saint-Rémy-de-Provence asylum. Captures the turbulent night sky using thick, swirling cosmic stroke vectors."
                     },
                     {
-                        title: "Sunflowers",
-                        year: "1888",
+                        title: "Bouquet of Sunflowers",
+                        year: "1880",
                         medium: "Oil on canvas",
-                        location: "Van Gogh Museum, Amsterdam",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/594px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
-                        analysis: "From the famous Yellow House series. Features intense yellow ochres to convey warmth, gratitude, and direct natural vitality."
+                        location: "Metropolitan Museum of Art, New York",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bouquet-of-Sunflowers-1880-Claude-Monet-Oil-Painting.jpg?raw=true",
+                        analysis: "A composition packed with vibrant, layered hues. These organic arrays map structural light absorption rules with heavy masterly paint thickness."
                     },
                     {
                         title: "Cafe Terrace at Night",
                         year: "1888",
                         medium: "Oil on canvas",
                         location: "Kröller-Müller Museum, Otterlo",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Vincent_van_Gogh_-_Caf%C3%A9_Terrace_at_Night_%28F467%29_-_Google_Art_Project.jpg/506px-Vincent_van_Gogh_-_Caf%C3%A9_Terrace_at_Night_%28F467%29_-_Google_Art_Project.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/vincent%20cafe%20terrance.png?raw=true",
                         analysis: "A beautiful exploration of contrasting temperatures. The warm gaslit café tables shine brightly against the deep Prussian blue night sky."
                     }
                 ]
@@ -767,7 +775,7 @@
                         year: "1931",
                         medium: "Oil on canvas",
                         location: "Museum of Modern Art, New York",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/The_Persistence_of_Memory.jpg/800px-The_Persistence_of_Memory.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-persistence-of-memory-1931.jpg?raw=true",
                         analysis: "His ultimate surrealist statement. Features clocks melting quietly across a quiet, dreamlike Catalan coastline, exploring the elastic nature of time."
                     },
                     {
@@ -775,7 +783,7 @@
                         year: "1948",
                         medium: "Oil on canvas",
                         location: "Private Collection",
-                        imageUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-elephants-large.jpg?raw=true",
                         analysis: "Shows giant desert-walker elephants standing on long, thin, arachnid legs, playing with structural mass, weight, and spatial vulnerability."
                     },
                     {
@@ -783,7 +791,7 @@
                         year: "1937",
                         medium: "Oil on canvas",
                         location: "Tate Modern, London",
-                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Salvador_Dal%C3%AD_-_Metamorphosis_of_Narcissus_-_Google_Art_Project.jpg/600px-Salvador_Dal%C3%AD_-_Metamorphosis_of_Narcissus_-_Google_Art_Project.jpg",
+                        imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/metamorphosis%20of%20narcissus.jpg?raw=true",
                         analysis: "Dali's double-image method. Explores Narcissus' self-absorbed reflecting figure morphing into a stone hand grasping an egg from which a Narcissus flower blooms."
                     }
                 ]
@@ -812,7 +820,7 @@
                 const isCenter = (idx === activeIndex);
                 const card = document.createElement('div');
                 
-                card.className = `absolute w-[220px] sm:w-[300px] h-[260px] sm:h-[360px] cursor-pointer transition-all duration-1000 ease-out flex items-center justify-center group`;
+                card.className = `absolute w-[240px] sm:w-[320px] h-[320px] sm:h-[400px] cursor-pointer transition-all duration-1000 ease-out flex items-center justify-center group`;
                 
                 let transform = '';
                 let zIndex = 10 - Math.abs(diff);
@@ -820,15 +828,15 @@
                 let filter = 'brightness(0.12) blur(3px)';
 
                 if (diff === 0) {
-                    transform = 'translateZ(140px) rotateY(0deg) scale(1.1)';
-                    filter = 'brightness(1) drop-shadow(0 25px 45px rgba(0,0,0,0.65))';
+                    transform = 'translateZ(200px) rotateY(0deg) scale(1.1)';
+                    filter = 'brightness(1) drop-shadow(0 35px 60px rgba(0,0,0,0.75))';
                 } else if (diff === -1 || (diff === collection.length - 1 && activeIndex === 0)) {
-                    transform = 'translateX(-120px) translateZ(-50px) rotateY(25deg) scale(0.85)';
+                    transform = 'translateX(-150px) translateZ(-80px) rotateY(28deg) scale(0.85)';
                 } else if (diff === 1 || (diff === -collection.length + 1 && activeIndex === collection.length - 1)) {
-                    transform = 'translateX(120px) translateZ(-50px) rotateY(-25deg) scale(0.85)';
+                    transform = 'translateX(150px) translateZ(-80px) rotateY(-28deg) scale(0.85)';
                 } else {
                     opacity = 0;
-                    transform = 'translateZ(-180px)';
+                    transform = 'translateZ(-250px)';
                 }
 
                 card.style.transform = transform;
@@ -929,8 +937,6 @@
         function selectSearchResult(index) {
             activeIndex = index;
             render3DDesk();
-            
-            // Auto navigate to main carousel gallery to center target
             navigateTo('gallery');
 
             // Clear search input and dropdown
@@ -952,7 +958,7 @@
             }
         });
 
-        // Trigger gorgeous left-aligned error page if assets or frame images fail to load
+        // Trigger gorgeous left-aligned error page if assets fail to load
         function triggerEmergencyRoom(imgEl) {
             console.error("Asset failed to retrieve. Opening visual restoration room...");
             navigateTo('error');
@@ -960,7 +966,6 @@
 
         // Mouse displacement for subtle 3D parallax coordinates tilt
         const sceneEl = document.getElementById('room-gallery');
-        const tiltEl = document.querySelector('.tilt-wrapper');
         
         sceneEl.addEventListener('mousemove', (e) => {
             const rect = sceneEl.getBoundingClientRect();
@@ -1058,15 +1063,28 @@
                     
                     const fallbackImg = getBlueprintFallback(art.title, artist.name);
 
+                    // Cleaned up overlay layout text blocks from conflicting with images.
                     itemContainer.innerHTML = `
-                        <!-- Museum Framed Painting -->
+                        <!-- Museum Framed Painting with Complex Blueprint Hover Reveal -->
                         <div onclick="openMasterpiece(${idx})" class="museum-picture-frame cursor-zoom-in transition-all duration-500 hover:scale-[1.03] group max-w-full">
                             <!-- Inner brass trim liner -->
-                            <div class="museum-frame-gold-trim p-1.5 flex items-center justify-center overflow-hidden">
-                                <img class="max-h-[200px] max-w-full object-contain transition-opacity duration-700 group-hover:opacity-90 animate__animated animate__fadeIn" 
+                            <div class="museum-frame-gold-trim p-1.5 flex items-center justify-center overflow-hidden relative">
+                                <img class="max-h-[200px] max-w-full object-contain transition-opacity duration-700 group-hover:opacity-10 animate__animated animate__fadeIn relative z-10" 
                                      src="${art.imageUrl}" 
                                      alt="${art.title}" 
                                      onerror="this.onerror=null; this.src='${fallbackImg}';">
+                                
+                                <!-- Complex Renaissance blueprint reveal overlay -->
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center bg-obsidian-950/95 pointer-events-none p-4 text-center z-20">
+                                    <svg class="w-14 h-14 text-champagne-400/30 mx-auto animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.4">
+                                        <circle cx="50" cy="50" r="32" stroke-dasharray="2,2"/>
+                                        <rect x="20" y="20" width="60" height="60"/>
+                                        <line x1="0" y1="0" x2="100" y2="100"/>
+                                        <line x1="100" y1="0" x2="0" y2="100"/>
+                                    </svg>
+                                    <p class="font-calligraphy text-2xl text-champagne-300 mt-2">Skeletal Draft</p>
+                                    <p class="text-[6px] text-champagne-500/50 uppercase tracking-widest mt-1">Sec. Index 0${idx + 1}</p>
+                                </div>
                             </div>
                             
                             <!-- Classic hanging wire visual simulation at the top -->
@@ -1075,7 +1093,7 @@
 
                         <!-- Elegant Wall Plaque Label -->
                         <div onclick="openMasterpiece(${idx})" class="w-full max-w-[240px] text-center bg-champagne-100/95 border border-champagne-500/20 py-3 px-4 rounded shadow-lg cursor-pointer hover:border-champagne-500 transition-all duration-300">
-                            <h4 class="font-cinzel text-[10px] text-obsidian-950 font-semibold tracking-wider truncate">${art.title}</h4>
+                            <h4 class="font-cinzel text-[10px] text-obsidian-950 font-semibold tracking-wider truncate font-bold">${art.title}</h4>
                             <p class="text-[7px] text-champagne-700 font-sans tracking-[0.2em] uppercase mt-1">${art.year} • INSPECT</p>
                         </div>
                     `;
