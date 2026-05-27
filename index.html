@@ -247,7 +247,7 @@
 
                     <!-- The Interactive Frame Anchor with enhanced responsive 4K Scaler -->
                     <div class="carousel-scaler">
-                        <div id="floating-frames-anchor" class="tilt-wrapper relative w-[260px] sm:w-[320px] h-[320px] sm:h-[400px] flex items-center justify-center">
+                        <div id="floating-frames-anchor" class="tilt-wrapper relative w-[240px] sm:w-[320px] h-[320px] sm:h-[400px] flex items-center justify-center">
                             <!-- Populated programmatically with raw frame files -->
                         </div>
                     </div>
@@ -554,9 +554,9 @@
                     <div class="md:col-span-6 bg-obsidian-950 p-6 flex flex-col items-center justify-center min-h-[300px] md:min-h-[480px] relative border-b md:border-b-0 md:border-r border-champagne-500/10">
                         <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-[1px] bg-champagne-400/20 shadow-[0_2px_15px_4px_rgba(218,198,181,0.15)] rounded-full"></div>
                         
-                        <div class="relative max-w-full max-h-[60vh] p-1 bg-obsidian-900 border border-champagne-500/15 shadow-2xl overflow-hidden group">
-                            <div class="relative overflow-hidden">
-                                <img id="zoom-painting-img" class="max-h-[46vh] mx-auto object-contain bg-obsidian-900 transition-all duration-700 group-hover:opacity-10" src="" alt="Spotlight Artwork">
+                        <div class="relative max-w-full max-h-[60vh] p-1 bg-obsidian-900 border border-champagne-500/15 shadow-2xl overflow-hidden group w-full h-[320px] md:h-auto flex items-center justify-center">
+                            <div class="relative overflow-hidden w-full h-full flex items-center justify-center">
+                                <img id="zoom-painting-img" class="max-h-[46vh] max-w-full object-contain bg-obsidian-900 transition-all duration-700 group-hover:opacity-10" src="" alt="Spotlight Artwork">
                                 
                                 <!-- Leonardo blueprint schematic on hover -->
                                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center p-4 bg-obsidian-950/95 pointer-events-none">
@@ -1063,18 +1063,18 @@
                     
                     const fallbackImg = getBlueprintFallback(art.title, artist.name);
 
-                    // Cleaned up overlay layout text blocks from conflicting with images.
+                    // Mapped object-cover to fully satisfy container dimensions and separated layered elements cleanly.
                     itemContainer.innerHTML = `
                         <!-- Museum Framed Painting with Complex Blueprint Hover Reveal -->
                         <div onclick="openMasterpiece(${idx})" class="museum-picture-frame cursor-zoom-in transition-all duration-500 hover:scale-[1.03] group max-w-full">
                             <!-- Inner brass trim liner -->
-                            <div class="museum-frame-gold-trim p-1.5 flex items-center justify-center overflow-hidden relative">
-                                <img class="max-h-[200px] max-w-full object-contain transition-opacity duration-700 group-hover:opacity-10 animate__animated animate__fadeIn relative z-10" 
+                            <div class="museum-frame-gold-trim flex items-center justify-center overflow-hidden relative w-[200px] h-[240px] sm:w-[240px] sm:h-[280px]">
+                                <img class="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-10 animate__animated animate__fadeIn relative z-10" 
                                      src="${art.imageUrl}" 
                                      alt="${art.title}" 
                                      onerror="this.onerror=null; this.src='${fallbackImg}';">
                                 
-                                <!-- Complex Renaissance blueprint reveal overlay -->
+                                <!-- Complex Renaissance blueprint reveal overlay (Isolated completely within z-20 layer structure) -->
                                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center bg-obsidian-950/95 pointer-events-none p-4 text-center z-20">
                                     <svg class="w-14 h-14 text-champagne-400/30 mx-auto animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.4">
                                         <circle cx="50" cy="50" r="32" stroke-dasharray="2,2"/>
