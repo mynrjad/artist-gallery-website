@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection of Stories — Curator Retrospective</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Luxury & Editorial Font Pairings -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['"Cinzel"', 'serif'],
+                        cormorant: ['"Cormorant Garamond"', 'serif'],
+                        calligraphy: ['"Pinyon Script"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        champagne: {
+                            100: '#FAF6F0',
+                            200: '#F5EFEB',
+                            300: '#EADFD7',
+                            400: '#DAC6B5',
+                            500: '#C2A38E',
+                            600: '#A37E65',
+                            700: '#7F5F49',
+                            800: '#543D2D',
+                            900: '#33241A',
+                        },
+                        obsidian: {
+                            800: '#181716',
+                            900: '#11100F',
+                            950: '#090808',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 3px;
+            height: 3px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A37E65;
+            border-radius: 1px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DAC6B5;
+        }
+
+        /* Luxury Vintage Wallpaper Stripe Pattern Overlay */
+        .museum-wallpaper {
+            background-image: repeating-linear-gradient(
+                90deg,
+                rgba(24, 23, 22, 0.35) 0px,
+                rgba(24, 23, 22, 0.35) 30px,
+                rgba(17, 16, 15, 0.5) 30px,
+                rgba(17, 16, 15, 0.5) 60px
+            );
+        }
+
+        /* Aged Parchment Overlay with Fine Noise */
+        .aged-parchment-layer {
+            background-color: #FAF6F0;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.03) 100%);
+            position: relative;
+        }
+        .aged-parchment-layer::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Immersive 3D Space Controllers */
+        .perspective-desk {
+            perspective: 2500px;
+        }
+        .tilt-wrapper {
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Room Transition Wipes */
+        .room-shutter {
+            transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.9s ease;
+        }
+
+        /* Blueprint Path Draw Simulation */
+        @keyframes blueprintDraw {
+            from { stroke-dashoffset: 1200; }
+            to { stroke-dashoffset: 0; }
+        }
+        .blueprint-sketch-path {
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            animation: blueprintDraw 12s linear infinite alternate;
+        }
+
+        /* Wax-seal drop simulation */
+        .wax-seal-drop {
+            transform: scale(2.5) rotate(-15deg);
+            opacity: 0;
+            filter: blur(4px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, filter 0.2s;
+        }
+        .wax-seal-drop.applied {
+            transform: scale(1) rotate(6deg);
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        .no-select {
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    </style>
+</head>
+<body class="h-full bg-obsidian-950 text-champagne-900 font-sans antialiased overflow-hidden no-select">
+
+    <!-- Cinematic Curtain Transition wipe -->
+    <div id="scenic-wipe" class="fixed inset-0 bg-obsidian-950 z-50 transform translate-y-full room-shutter flex flex-col items-center justify-center">
+        <div class="text-center space-y-6">
+            <svg class="w-16 h-16 text-champagne-500/20 mx-auto animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                <circle cx="50" cy="50" r="40" stroke-width="0.3" stroke-dasharray="4,4"/>
+                <circle cx="50" cy="50" r="25" stroke-width="0.5"/>
+                <line x1="50" y1="0" x2="50" y2="100" stroke-width="0.2"/>
+            </svg>
+            <p class="font-cinzel text-[9px] text-champagne-400 tracking-[0.4em] uppercase">Recalibrating Exhibition Coordinates...</p>
+        </div>
+    </div>
+
+    <!-- MAIN EXHIBITION SYSTEM FRAME -->
+    <div class="h-full w-full flex flex-col relative z-20">
+
+        <!-- Minimal Luxury Header -->
+        <header class="w-full h-16 border-b border-champagne-500/10 bg-obsidian-950/90 backdrop-blur-md px-6 md:px-12 flex justify-between items-center z-40 shrink-0">
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="navigateTo('gallery')">
+                <span class="text-champagne-400 font-cinzel text-xs tracking-[0.3em] uppercase font-semibold">Collection of Stories</span>
+                <span class="text-champagne-500/20 hidden sm:inline">|</span>
+                <span class="text-[8px] font-sans tracking-[0.2em] text-champagne-500/60 uppercase hidden sm:inline">STI College Las Piñas</span>
+            </div>
+            
+            <nav class="flex space-x-6 sm:space-x-8 text-[9px] font-cinzel tracking-[0.25em] text-champagne-500/70">
+                <button onclick="navigateTo('gallery')" class="hover:text-champagne-300 transition-colors uppercase font-medium focus:outline-none" id="nav-gallery-btn">
+                    <span class="text-champagne-300 font-semibold">•</span> Carousel Wall
+                </button>
+                <button onclick="navigateTo('dossier')" class="hover:text-champagne-300 transition-colors uppercase font-medium focus:outline-none" id="nav-dossier-btn">
+                    Exhibition Ledger
+                </button>
+                <button onclick="navigateTo('contact')" class="hover:text-champagne-300 transition-colors uppercase font-medium focus:outline-none" id="nav-contact-btn">
+                    Correspondence
+                </button>
+                <button onclick="navigateTo('error')" class="hover:text-red-400 transition-colors uppercase font-medium focus:outline-none text-red-500/80" id="nav-error-btn">
+                    Anomalies
+                </button>
+            </nav>
+        </header>
+
+        <!-- MAIN LAYOUT VIEWPANELS CONTAINER -->
+        <div class="flex-grow w-full overflow-hidden relative">
+
+            <!-- 1. LANDING PAGE ROOM -->
+            <div id="room-gallery" class="absolute inset-0 w-full h-full flex flex-col transition-all duration-1000 transform translate-x-0 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(9, 8, 8, 0.95) 0%, rgba(9, 8, 8, 0.6) 100%), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
+                
+                <!-- Seamless Luxury Wallpaper stripe pattern overlay -->
+                <div class="absolute inset-0 pointer-events-none museum-wallpaper opacity-40 mix-blend-overlay"></div>
+
+                <!-- Radial Spotlight Focus behind the interactive frames -->
+                <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(218,198,181,0.14)_0%,transparent_60%)]"></div>
+
+                <!-- CAROUSEL CORE WORKSPACE (Direct Frame Access) -->
+                <div class="perspective-desk relative w-full h-full flex flex-col items-center justify-center">
+                    
+                    <!-- Dynamic floating calligraphy notes near the active frame -->
+                    <div class="absolute top-[10%] select-none pointer-events-none text-center z-30 transition-all duration-500">
+                        <span id="active-artist-tag" class="font-calligraphy text-4xl sm:text-5xl text-champagne-400 opacity-90 block">Leonardo Da Vinci</span>
+                        <span id="active-artist-era" class="font-cinzel text-[8px] tracking-[0.3em] uppercase text-champagne-500/60 mt-1.5 block">HIGH RENAISSANCE • 1452 – 1519</span>
+                    </div>
+
+                    <!-- Left / Right Solid Brass Toggle Buttons -->
+                    <button onclick="changeFrame(-1)" class="absolute left-6 md:left-24 z-45 w-12 h-12 border border-champagne-500/20 bg-obsidian-950/95 hover:bg-champagne-500/10 text-champagne-400 hover:text-champagne-100 flex items-center justify-center rounded transition-all duration-300 shadow-2xl hover:scale-105" aria-label="Slide Left">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+
+                    <!-- The Interactive Frame Anchor -->
+                    <div id="floating-frames-anchor" class="tilt-wrapper relative w-[240px] sm:w-[320px] h-[300px] sm:h-[400px] flex items-center justify-center">
+                        <!-- Populated programmatically with raw frame files -->
+                    </div>
+
+                    <button onclick="changeFrame(1)" class="absolute right-6 md:right-24 z-45 w-12 h-12 border border-champagne-500/20 bg-obsidian-950/95 hover:bg-champagne-500/10 text-champagne-400 hover:text-champagne-100 flex items-center justify-center rounded transition-all duration-300 shadow-2xl hover:scale-105" aria-label="Slide Right">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+
+                    <!-- Minimal Instruction Overlay at the base -->
+                    <div class="absolute bottom-8 flex flex-col items-center space-y-3 pointer-events-none z-30">
+                        <span class="text-champagne-500/60 font-cinzel text-[8px] uppercase tracking-[0.3em] animate-pulse">Click frame to enter individual exhibit room</span>
+                        <div class="flex space-x-2" id="pagination-dots-container"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 2. ARTIST EXHIBITION ROOM -->
+            <div id="room-exhibition" class="absolute inset-0 w-full h-full flex-col transition-all duration-1000 transform translate-x-full hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(9, 8, 8, 0.96), rgba(9, 8, 8, 0.96)), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
+                
+                <!-- Room wallpaper stripes -->
+                <div class="absolute inset-0 pointer-events-none museum-wallpaper opacity-35 mix-blend-overlay"></div>
+
+                <!-- Chamber navigation bar -->
+                <div class="w-full h-14 bg-obsidian-950 border-b border-champagne-500/15 flex justify-between items-center px-6 md:px-12 z-30 shrink-0">
+                    <button onclick="exitChamber()" class="text-champagne-400 hover:text-champagne-200 font-cinzel text-[9px] tracking-[0.2em] uppercase focus:outline-none flex items-center gap-2 transition-colors">
+                        <i class="fa-solid fa-chevron-left text-[8px]"></i> Back to Carousel
+                    </button>
+                    <div>
+                        <span id="active-chamber-heading" class="font-cinzel text-xs text-champagne-200 tracking-[0.25em] uppercase font-bold">Leonardo Da Vinci Chamber</span>
+                    </div>
+                    <div class="hidden sm:block text-[8px] text-champagne-500/60 font-cinzel tracking-[0.15em] uppercase">
+                        Spotlight Collection Room
+                    </div>
+                </div>
+
+                <!-- Showcase Room Wall Area -->
+                <div class="flex-grow overflow-y-auto p-6 md:p-12 relative z-20">
+                    <div class="max-w-6xl mx-auto space-y-12">
+                        
+                        <div class="max-w-3xl mx-auto text-center space-y-4">
+                            <span class="font-calligraphy text-4xl text-champagne-400 select-none">Exhibition Portfolio</span>
+                            <p id="active-chamber-bio" class="text-champagne-300 font-cormorant text-lg sm:text-xl leading-relaxed italic">
+                                Exploring the spatial design and deep compositions of famous masterworks.
+                            </p>
+                            <div class="w-16 h-[0.5px] bg-champagne-50/20 mx-auto"></div>
+                        </div>
+
+                        <!-- Art Installations Grid -->
+                        <div id="chamber-installations-wall" class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-4 items-start pb-12">
+                            <!-- Populated dynamically with artworks -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. EXHIBITION LEDGER DOSSIER -->
+            <div id="room-dossier" class="absolute inset-0 w-full h-full flex items-center justify-center transition-all duration-1000 transform translate-x-full hidden overflow-y-auto p-6 md:p-12 aged-parchment-layer">
+                
+                <!-- Blueprint grid backdrop -->
+                <div class="absolute inset-0 pointer-events-none opacity-[0.03] overflow-hidden">
+                    <svg class="w-full h-full text-obsidian-950" viewBox="0 0 100 100">
+                        <polygon points="50,5 95,90 5,90" stroke="currentColor" stroke-width="0.1" fill="none" />
+                        <circle cx="50" cy="62" r="28" stroke="currentColor" stroke-width="0.08" fill="none" />
+                        <line x1="50" y1="5" x2="50" y2="90" stroke="currentColor" stroke-width="0.08" />
+                    </svg>
+                </div>
+
+                <div class="max-w-3xl w-full bg-champagne-100/50 border border-champagne-500/20 rounded p-8 md:p-12 shadow-2xl relative z-10 my-auto">
+                    <span class="absolute top-6 right-8 font-calligraphy text-2xl text-champagne-700 select-none -rotate-6">"Notandum curatoris"</span>
+
+                    <div class="text-center space-y-3 mb-8">
+                        <h2 class="font-cinzel text-base text-obsidian-950 uppercase tracking-[0.25em] font-semibold">Exhibition Dossier</h2>
+                        <p class="text-champagne-600 font-sans text-[8px] tracking-[0.2em] uppercase font-bold">Curator Commentary Ledger</p>
+                        <div class="w-16 h-[0.5px] bg-champagne-500/30 mx-auto"></div>
+                    </div>
+
+                    <div class="space-y-6 text-obsidian-900 text-sm md:text-base leading-relaxed text-justify font-cormorant italic">
+                        <p>
+                            Welcome to the <strong class="text-obsidian-950 font-sans not-italic text-xs tracking-wider">"Collection of Stories,"</strong> a bespoke digital archive curated by the technology and design panels of <strong class="text-obsidian-950 font-sans not-italic text-xs tracking-wider">STI College Las Piñas</strong>.
+                        </p>
+                        <p>
+                            This digital project shifts traditional gallery website patterns. Instead of viewing isolated frame assets, the interface organizes the paintings as structured components of an interactive journal desk. These frames suspended in the 3D portal contain the exact visual and mathematical rules designed by the master artists.
+                        </p>
+                        <p>
+                            From the psychological distortion vectors of Francis Bacon to the divine grid geometries of Leonardo Da Vinci, each room explores key landmarks of artistic storytelling. Hovering over any frame reveals the underlying structural blueprint, allowing visitors to examine compositions through a classical scholar's perspective.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 pt-6 border-t border-champagne-500/15 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-champagne-500/10 border border-champagne-500/25 rounded-full flex items-center justify-center text-champagne-700">
+                                <i class="fa-solid fa-graduation-cap text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-cinzel text-obsidian-950 font-semibold text-[9px] uppercase tracking-wider">STI College Las Piñas</p>
+                                <p class="text-champagne-600 text-[8px] tracking-widest font-bold uppercase">Archive & Exhibition Platform</p>
+                            </div>
+                        </div>
+                        <button onclick="navigateTo('contact')" class="px-5 py-2 bg-obsidian-950 hover:bg-champagne-700 text-champagne-100 font-cinzel text-[8px] tracking-[0.2em] uppercase rounded transition-all duration-300">
+                            Enter Correspondence Desk <i class="fa-solid fa-pen-nib ml-1 opacity-70"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CORRESPONDENCE DESK -->
+            <div id="room-contact" class="absolute inset-0 w-full h-full flex flex-col transition-all duration-1000 transform translate-x-full hidden overflow-y-auto p-6 md:p-12 aged-parchment-layer">
+                
+                <div class="max-w-6xl w-full mx-auto my-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch relative z-10">
+                    
+                    <!-- LEFT COLUMN: Physical catalog info card -->
+                    <div class="lg:col-span-5 bg-champagne-100/60 border border-champagne-500/20 rounded p-6 md:p-8 flex flex-col justify-between relative shadow-xl overflow-hidden">
+                        
+                        <!-- Blueprint schema backdrop -->
+                        <div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+                            <svg class="w-full h-full text-obsidian-950" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" />
+                                <line x1="50" y1="0" x2="50" y2="100" />
+                            </svg>
+                        </div>
+
+                        <div class="space-y-6 relative z-10">
+                            <div class="border-b border-champagne-500/15 pb-3">
+                                <h3 class="font-cinzel text-xs text-obsidian-950 uppercase tracking-[0.2em] font-bold">Correspondence Desk</h3>
+                                <p class="text-champagne-600 text-[8px] uppercase tracking-widest mt-0.5">Get in Touch</p>
+                            </div>
+
+                            <p class="text-obsidian-900/80 font-cormorant text-sm leading-relaxed italic">
+                                Have questions, feedback, or collaboration inquiries? We’d love to hear from you. Feel free to contact us using the information below or send us a message directly through the contact form.
+                            </p>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-champagne-700 mt-0.5"><i class="fa-solid fa-compass text-xs"></i></div>
+                                    <div>
+                                        <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold">Project Name</p>
+                                        <p class="text-obsidian-950 font-cormorant italic text-sm font-semibold">Collection of Stories</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-champagne-700 mt-0.5"><i class="fa-solid fa-graduation-cap text-xs"></i></div>
+                                    <div>
+                                        <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold">Organization</p>
+                                        <p class="text-obsidian-950 text-xs font-sans font-medium">STI College Las Piñas</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-champagne-700 mt-0.5"><i class="fa-solid fa-map-pin text-xs"></i></div>
+                                    <div>
+                                        <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold">Location</p>
+                                        <p class="text-obsidian-950 text-xs font-sans font-light">Las Piñas City, Philippines</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-champagne-700 mt-0.5"><i class="fa-solid fa-envelope text-xs"></i></div>
+                                    <div>
+                                        <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold">Email</p>
+                                        <a href="mailto:Collection.project@gmail.com" class="text-champagne-700 hover:text-champagne-900 text-xs font-sans font-light underline">Collection.project@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="text-champagne-700 mt-0.5"><i class="fa-solid fa-phone text-xs"></i></div>
+                                    <div>
+                                        <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold">Phone</p>
+                                        <a href="tel:+639123456789" class="text-obsidian-950 hover:text-champagne-700 text-xs font-sans font-light">+63 912 345 6789</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Follow channels & office hours -->
+                        <div class="border-t border-champagne-500/15 pt-5 mt-6 space-y-4 relative z-10">
+                            <div>
+                                <p class="text-[7px] text-champagne-600 uppercase tracking-widest font-cinzel font-bold mb-2">Follow Us</p>
+                                <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-obsidian-950/70">
+                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Facebook Link"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Instagram Link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="Behance Link"><i class="fa-brands fa-behance"></i> Behance</a>
+                                    <a href="#" class="hover:text-champagne-700 transition-colors" aria-label="GitHub Link"><i class="fa-brands fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-1 border-t border-champagne-500/5 text-[8px]">
+                                <div>
+                                    <p class="text-champagne-600 font-cinzel uppercase tracking-widest font-bold">Office Hours</p>
+                                    <p class="text-obsidian-950 font-sans font-medium mt-0.5">Monday – Friday</p>
+                                    <p class="text-obsidian-950/60 font-sans">9:00 AM – 5:00 PM</p>
+                                </div>
+                                <div>
+                                    <p class="text-champagne-600 font-cinzel uppercase tracking-widest font-bold">Response Time</p>
+                                    <p class="text-obsidian-950/70 mt-0.5 leading-normal font-sans">We usually respond within 24–48 hours after receiving your message.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: Elegant Document Composer Form -->
+                    <div class="lg:col-span-7 bg-champagne-50 border border-champagne-500/20 rounded p-6 md:p-8 flex flex-col justify-between shadow-xl relative">
+                        
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center border-b border-champagne-500/15 pb-3">
+                                <div>
+                                    <h3 class="font-cinzel text-xs text-obsidian-950 uppercase tracking-[0.2em] font-bold">Send a Message</h3>
+                                    <p class="text-champagne-600 text-[8px] uppercase tracking-widest mt-0.5">Draft a transmission parchment</p>
+                                </div>
+                                <i class="fa-solid fa-pen-nib text-base text-champagne-700"></i>
+                            </div>
+
+                            <form id="correspondence-form" onsubmit="submitForm(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[7px] uppercase tracking-widest font-cinzel text-champagne-600 font-bold mb-1">Name</label>
+                                        <input type="text" id="input-name" required placeholder="[ Enter your full name ]" class="w-full bg-champagne-100/50 border border-champagne-500/15 focus:border-champagne-500 focus:bg-white rounded px-3 py-2 outline-none transition text-obsidian-950 font-sans text-xs">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[7px] uppercase tracking-widest font-cinzel text-champagne-600 font-bold mb-1">Email Address</label>
+                                        <input type="email" id="input-email" required placeholder="[ Enter your email ]" class="w-full bg-champagne-100/50 border border-champagne-500/15 focus:border-champagne-500 focus:bg-white rounded px-3 py-2 outline-none transition text-obsidian-950 font-sans text-xs">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[7px] uppercase tracking-widest font-cinzel text-champagne-600 font-bold mb-1">Subject</label>
+                                    <input type="text" id="input-subject" required placeholder="[ Enter subject ]" class="w-full bg-champagne-100/50 border border-champagne-500/15 focus:border-champagne-500 focus:bg-white rounded px-3 py-2 outline-none transition text-obsidian-950 font-sans text-xs">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[7px] uppercase tracking-widest font-cinzel text-champagne-600 font-bold mb-1">Message</label>
+                                    <textarea id="input-message" required rows="3" placeholder="[ Type your message here ]" class="w-full bg-champagne-100/50 border border-champagne-500/15 focus:border-champagne-500 focus:bg-white rounded px-3 py-2 outline-none transition text-obsidian-950 font-sans text-xs"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3 bg-obsidian-950 hover:bg-champagne-700 text-champagne-100 font-cinzel font-bold text-[8px] tracking-[0.25em] uppercase rounded shadow-lg transition-all duration-300 flex items-center justify-center gap-2 focus:outline-none">
+                                    <span>Send Message</span>
+                                    <i class="fa-solid fa-paper-plane text-[8px]"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- SUCCESS WAX STAMP MODAL -->
+                        <div id="stamp-alert" class="hidden mt-6 p-4 border border-champagne-500/20 bg-champagne-100 rounded flex items-center space-x-4 animate__animated animate__fadeIn">
+                            <div id="wax-seal-graphic" class="wax-seal-drop w-12 h-12 bg-red-800 border border-red-950 rounded-full flex items-center justify-center text-white font-black shadow-2xl shrink-0">
+                                <span class="text-[9px] font-cinzel tracking-tighter">STI</span>
+                            </div>
+                            <div>
+                                <p class="font-cinzel text-[8px] uppercase tracking-widest font-bold text-obsidian-950">Sealed & Logged</p>
+                                <p class="text-[10px] font-cormorant italic text-obsidian-900/60 leading-normal">Your transmission has been sealed directly on our guest ledger.</p>
+                            </div>
+                        </div>
+
+                        <!-- LIVE PARCHMENT REGISTRY -->
+                        <div class="mt-6 border-t border-champagne-500/15 pt-5">
+                            <h4 class="font-cinzel text-[8px] uppercase tracking-widest text-champagne-600 font-bold mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-book-open"></i> Curator Registry Ledger
+                            </h4>
+                            <div id="live-ledger-rows" class="space-y-2.5 max-h-32 overflow-y-auto pr-2">
+                                <div class="bg-champagne-100/40 border-l-2 border-champagne-500 p-2 rounded text-[10px] italic font-cormorant text-obsidian-900">
+                                    <p>"Absolutely breathtaking. This layout makes choosing artists feel like walking inside a real museum vault!"</p>
+                                    <p class="text-right text-[7px] font-cinzel text-champagne-700 tracking-wider font-semibold mt-1">— Maria Santos, Visitor</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. ERROR / RESTORATION ROOM (Using errorp.png with contents on the left) -->
+            <div id="room-error" class="absolute inset-0 w-full h-full flex flex-col justify-center transition-all duration-1000 transform translate-x-full hidden bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(9, 8, 8, 0.95) 0%, rgba(9, 8, 8, 0.4) 60%, transparent 100%), url('https://github.com/mynrjad/artist-gallery-website/blob/main/errorp.png?raw=true');">
+                <div class="max-w-xl ml-6 md:ml-24 text-left space-y-6 relative z-10 text-champagne-100 p-8 bg-obsidian-950/80 backdrop-blur-md rounded border border-champagne-500/10">
+                    <span class="font-cinzel text-xs text-red-500 tracking-[0.3em] uppercase block">SYSTEM ANOMALY • CORRUPTION DETECTED</span>
+                    <h1 class="font-cinzel text-3xl md:text-4xl text-champagne-200 font-bold leading-tight">Archival Integrity Disrupted</h1>
+                    <p class="font-cormorant text-base md:text-lg text-champagne-300/90 italic leading-relaxed">
+                        The designated restoration project encountered a file retrieve error. Some raw visual resources, frames, or annotations failed to synchronize from the cloud vault.
+                    </p>
+                    <div class="border-t border-champagne-500/20 pt-4 text-xs font-sans text-champagne-400 space-y-1">
+                        <p><strong class="font-cinzel text-[10px]">Anomalous Target:</strong> Remote Artwork Repositories</p>
+                        <p><strong class="font-cinzel text-[10px]">Vault Source:</strong> Collection of Stories Database</p>
+                        <p><strong class="font-cinzel text-[10px]">Emergency Backup:</strong> SVG Blueprints Loaded Automatically</p>
+                    </div>
+                    <button onclick="navigateTo('gallery')" class="inline-block px-6 py-2.5 bg-champagne-500/20 hover:bg-champagne-500/35 border border-champagne-500/30 text-champagne-100 font-cinzel text-[9px] tracking-[0.25em] uppercase rounded transition-all duration-300">
+                        Return to Gallery Wall
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MASTERPIECE DETAILS SPOTLIGHT MODAL -->
+        <div id="masterpiece-zoomer" class="hidden fixed inset-0 z-50 bg-obsidian-950/98 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+            <div class="relative bg-champagne-100 max-w-4xl w-full rounded border border-champagne-500/20 shadow-2xl overflow-hidden animate__animated animate__zoomIn">
+                
+                <button onclick="closeMasterpiece()" class="absolute top-4 right-4 z-40 w-9 h-9 bg-obsidian-950 hover:bg-champagne-500/15 border border-champagne-500/20 text-champagne-400 hover:text-white rounded flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-2xl focus:outline-none">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 relative z-10">
+                    
+                    <!-- Left column: Drawing spot screen -->
+                    <div class="md:col-span-6 bg-obsidian-950 p-6 flex flex-col items-center justify-center min-h-[300px] md:min-h-[480px] relative border-b md:border-b-0 md:border-r border-champagne-500/10">
+                        <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-[1px] bg-champagne-400/20 shadow-[0_2px_15px_4px_rgba(218,198,181,0.15)] rounded-full"></div>
+                        
+                        <div class="relative max-w-full max-h-[60vh] p-1 bg-obsidian-900 border border-champagne-500/15 shadow-2xl overflow-hidden group">
+                            <div class="relative overflow-hidden">
+                                <img id="zoom-painting-img" class="max-h-[46vh] mx-auto object-contain bg-obsidian-900 transition-all duration-700 group-hover:opacity-10" src="" alt="Spotlight Artwork">
+                                
+                                <!-- Leonardo blueprint schematic on hover -->
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center p-4 bg-obsidian-950/95 pointer-events-none">
+                                    <div class="text-center space-y-4">
+                                        <svg class="w-16 h-16 text-champagne-400/25 mx-auto" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.35">
+                                            <circle cx="50" cy="50" r="35" stroke-dasharray="2,2"/>
+                                            <rect x="25" y="25" width="50" height="50"/>
+                                            <polygon points="50,10 90,80 10,80" />
+                                        </svg>
+                                        <p class="font-calligraphy text-2xl text-champagne-300">Composition Draft Map</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[7px] text-champagne-500/70 font-cinzel mt-3 tracking-[0.2em] uppercase">Hover image to view structural blueprints</span>
+                    </div>
+
+                    <!-- Right column: Curator Analysis Plaque -->
+                    <div class="md:col-span-6 p-6 md:p-8 flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="border-b border-champagne-500/15 pb-4 relative">
+                                <span class="absolute -top-4 right-0 font-calligraphy text-xl text-champagne-700 select-none">- Exhibition Catalog</span>
+                                <h3 id="zoom-painting-title" class="font-cinzel text-base md:text-lg text-obsidian-950 font-semibold tracking-wider">Mona Lisa</h3>
+                                <p id="zoom-painting-span" class="text-champagne-700 font-cinzel text-[8px] tracking-[0.2em] uppercase mt-0.5 font-bold">CIRCULATION • 1503</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <span class="text-[7px] tracking-[0.2em] uppercase font-cinzel text-champagne-700 font-bold block">Curator Analysis</span>
+                                <p id="zoom-painting-analysis" class="text-obsidian-900 text-sm leading-relaxed font-cormorant italic text-justify">
+                                    Detailed layout containing visual symmetry, soft brush details, and mysterious lighting styles.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Technical specification chart -->
+                        <div class="mt-8 pt-4 border-t border-champagne-500/15 text-obsidian-950/70 text-xs space-y-2.5">
+                            <div class="flex justify-between items-center">
+                                <span class="font-cinzel text-[8px] text-champagne-700 uppercase tracking-widest font-bold">Medium Formulation</span>
+                                <span id="zoom-painting-medium" class="font-sans text-obsidian-950 text-[10px] font-medium">Oil on Poplar wood</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-cinzel text-[8px] text-champagne-700 uppercase tracking-widest font-bold">Exhibition Residence</span>
+                                <span id="zoom-painting-location" class="font-sans text-obsidian-950 text-[10px] font-medium">Musée du Louvre, Paris</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full h-12 border-t border-champagne-500/10 bg-obsidian-950/90 text-center text-champagne-500/40 font-cinzel text-[7px] tracking-[0.3em] flex items-center justify-between px-6 md:px-12 z-30 shrink-0">
+            <div>© 2026 COLLECTION OF STORIES</div>
+            <div class="hidden md:block">CURATOR-DRIVEN EXPERIENCE • STI COLLEGE LAS PIÑAS ARCHIVES</div>
+        </footer>
+
+    </div>
+
+    <!-- GALLERY & COLLECTION RETROSPECTIVE DATA -->
+    <script>
+        // High fidelity fallbacks dynamically drawn as SVG in case external source links fail.
+        function getBlueprintFallback(title, artist) {
+            const cleanTitle = encodeURIComponent(title);
+            const cleanArtist = encodeURIComponent(artist);
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 100 125" style="background-color:%2311100F;"><g stroke="%23C2A38E" stroke-width="0.15" fill="none" opacity="0.65"><rect x="5" y="5" width="90" height="115" stroke-width="0.3"/><circle cx="50" cy="55" r="35" stroke-dasharray="2,2"/><line x1="5" y1="55" x2="95" y2="55"/><line x1="50" y1="5" x2="50" y2="120"/><polygon points="50,10 85,110 15,110" stroke-opacity="0.3"/><path d="M 15 55 Q 50 15 85 55 T 15 55" stroke-dasharray="1,1"/><text x="50" y="25" font-family="Cinzel, serif" font-size="3" fill="%23DAC6B5" text-anchor="middle" letter-spacing="0.5">${cleanArtist}</text><text x="50" y="105" font-family="Cormorant Garamond, serif" font-size="2.5" font-style="italic" fill="%23C2A38E" text-anchor="middle">${cleanTitle}</text></g></svg>`;
+        }
+
+        const collection = [
+            {
+                id: "bacon",
+                name: "Francis Bacon",
+                dates: "1909 – 1992",
+                era: "Post-War Existentialism",
+                frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bacon%20With%20Frame.png?raw=true",
+                pitch: "Irish-born British painter celebrated for highly visceral, psychological, and existential portraits of the post-war human psyche.",
+                paintings: [
+                    {
+                        title: "Study after Velázquez's Portrait of Pope Innocent X",
+                        year: "1953",
+                        medium: "Oil on canvas",
+                        location: "Des Moines Art Center, Iowa",
+                        imageUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600",
+                        analysis: "A study of isolation and screaming torment. Bacon isolates the screaming papal figure inside a cage of raw perspective lines, exploring institutional anxiety."
+                    },
+                    {
+                        title: "Three Studies for Figures at the Base of a Crucifixion",
+                        year: "1944",
+                        medium: "Oil and pastel on board",
+                        location: "Tate Britain, London",
+                        imageUrl: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600",
+                        analysis: "Bacon's legendary post-war triptych. Shows distorted, screaming mythological beast structures acting as sentinels of existential grief."
+                    },
+                    {
+                        title: "Self-Portrait",
+                        year: "1971",
+                        medium: "Oil on canvas",
+                        location: "Private Collection",
+                        imageUrl: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600",
+                        analysis: "Painted in absolute isolation after the death of George Dyer. Features fluid, distorted facial shapes reflecting aging and psychological wear."
+                    }
+                ]
+            },
+            {
+                id: "davinci",
+                name: "Leonardo Da Vinci",
+                dates: "1452 – 1519",
+                era: "High Renaissance",
+                frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Da%20Vinci%20With%20Frame.png?raw=true",
+                pitch: "The legendary High Renaissance polymath. Seamlessly unified mathematical proportions and anatomical study with delicate atmospheric sfumato.",
+                paintings: [
+                    {
+                        title: "Mona Lisa",
+                        year: "c. 1503 – 1519",
+                        medium: "Oil on Poplar wood",
+                        location: "Musée du Louvre, Paris",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/402px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+                        analysis: "The most famous portrait in human history. Shows Leonardo's signature sfumato brushwork, blending light and shadow to construct her legendary, enigmatic expression."
+                    },
+                    {
+                        title: "The Last Supper",
+                        year: "1495 – 1498",
+                        medium: "Tempera on gesso, pitch, and mastic",
+                        location: "Santa Maria delle Grazie, Milan",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Última_Cena_-_da_Vinci_5.jpg/800px-Última_Cena_-_da_Vinci_5.jpg",
+                        analysis: "A monumental achievement in perspective rendering. Captures the high-tension second when Christ announces an impending betrayal."
+                    },
+                    {
+                        title: "Lady with an Ermine",
+                        year: "c. 1489 – 1490",
+                        medium: "Oil on walnut panel",
+                        location: "Czartoryski Museum, Kraków",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg/528px-Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg",
+                        analysis: "A stunning portrait of Cecilia Gallerani, showcasing the artist's unparalleled ability to map bone structure, posture, and soft animal textures."
+                    }
+                ]
+            },
+            {
+                id: "monet",
+                name: "Claude Monet",
+                dates: "1840 – 1926",
+                era: "French Impressionism",
+                frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true", 
+                pitch: "The champion of light and atmospheric color, dedicating his life to capturing shifting shadows and natural light values on outdoor landscapes.",
+                paintings: [
+                    {
+                        title: "Impression, Sunrise",
+                        year: "1872",
+                        medium: "Oil on canvas",
+                        location: "Musée Marmottan Monet, Paris",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/800px-Monet_-_Impression%2C_Sunrise.jpg",
+                        analysis: "The painting that gave Impressionism its name. Captures the industrial port of Le Havre through loose, active brushstrokes and immediate colors."
+                    },
+                    {
+                        title: "Water Lilies (Nymphéas)",
+                        year: "c. 1916",
+                        medium: "Oil on canvas",
+                        location: "Musée de l'Orangerie, Paris",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Claude_Monet_-_Water_Lilies_-_Google_Art_Project_2.jpg/771px-Claude_Monet_-_Water_Lilies_-_Google_Art_Project_2.jpg",
+                        analysis: "One of his ultimate water garden pieces. Monet dissolves the traditional horizon line, wrapping the viewer in immersive reflections of sky and water."
+                    },
+                    {
+                        title: "Woman with a Parasol",
+                        year: "1875",
+                        medium: "Oil on canvas",
+                        location: "National Gallery of Art, Washington D.C.",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg/527px-Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg",
+                        analysis: "Features his wife Camille and son Jean, exploring natural sunlight catching fabrics and wind motions on an open, breezy hill."
+                    }
+                ]
+            },
+            {
+                id: "vangogh",
+                name: "Vincent Van Gogh",
+                dates: "1853 – 1890",
+                era: "Post-Impressionism",
+                frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Van%20Gogh%20With%20Frame.png?raw=true",
+                pitch: "Deeply emotional Dutch artist, translating personal passion and intense mental states into canvases of expressive color and thick, rhythmic impasto strokes.",
+                paintings: [
+                    {
+                        title: "The Starry Night",
+                        year: "1889",
+                        medium: "Oil on canvas",
+                        location: "Museum of Modern Art, New York",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/757px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+                        analysis: "Completed in the Saint-Rémy-de-Provence asylum. Captures the turbulent night sky using thick, swirling cosmic stroke vectors."
+                    },
+                    {
+                        title: "Sunflowers",
+                        year: "1888",
+                        medium: "Oil on canvas",
+                        location: "Van Gogh Museum, Amsterdam",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/594px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
+                        analysis: "From the famous Yellow House series. Features intense yellow ochres to convey warmth, gratitude, and direct natural vitality."
+                    },
+                    {
+                        title: "Cafe Terrace at Night",
+                        year: "1888",
+                        medium: "Oil on canvas",
+                        location: "Kröller-Müller Museum, Otterlo",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Vincent_van_Gogh_-_Caf%C3%A9_Terrace_at_Night_%28F467%29_-_Google_Art_Project.jpg/506px-Vincent_van_Gogh_-_Caf%C3%A9_Terrace_at_Night_%28F467%29_-_Google_Art_Project.jpg",
+                        analysis: "A beautiful exploration of contrasting temperatures. The warm gaslit café tables shine brightly against the deep Prussian blue night sky."
+                    }
+                ]
+            },
+            {
+                id: "dali",
+                name: "Salvador Dali",
+                dates: "1904 – 1989",
+                era: "Spanish Surrealism",
+                frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true",
+                pitch: "The legendary master of Surrealism, utilizing flawless academic painterly precision to render dream-like landscapes that challenge human perception of space and time.",
+                paintings: [
+                    {
+                        title: "The Persistence of Memory",
+                        year: "1931",
+                        medium: "Oil on canvas",
+                        location: "Museum of Modern Art, New York",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/The_Persistence_of_Memory.jpg/800px-The_Persistence_of_Memory.jpg",
+                        analysis: "His ultimate surrealist statement. Features clocks melting quietly across a quiet, dreamlike Catalan coastline, exploring the elastic nature of time."
+                    },
+                    {
+                        title: "The Elephants",
+                        year: "1948",
+                        medium: "Oil on canvas",
+                        location: "Private Collection",
+                        imageUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600",
+                        analysis: "Shows giant desert-walker elephants standing on long, thin, arachnid legs, playing with structural mass, weight, and spatial vulnerability."
+                    },
+                    {
+                        title: "Metamorphosis of Narcissus",
+                        year: "1937",
+                        medium: "Oil on canvas",
+                        location: "Tate Modern, London",
+                        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Salvador_Dal%C3%AD_-_Metamorphosis_of_Narcissus_-_Google_Art_Project.jpg/600px-Salvador_Dal%C3%AD_-_Metamorphosis_of_Narcissus_-_Google_Art_Project.jpg",
+                        analysis: "Dali's double-image method. Explores Narcissus' self-absorbed reflecting figure morphing into a stone hand grasping an egg from which a Narcissus flower blooms."
+                    }
+                ]
+            }
+        ];
+
+        let activeIndex = 1; // Default Leonardo Da Vinci Focus
+    </script>
+
+    <!-- INTERACTIVE 3D PERSPECTIVE DESK SYSTEM -->
+    <script>
+        function render3DDesk() {
+            const anchor = document.getElementById('floating-frames-anchor');
+            const dots = document.getElementById('pagination-dots-container');
+            if(!anchor || !dots) return;
+            anchor.innerHTML = '';
+            dots.innerHTML = '';
+
+            collection.forEach((item, idx) => {
+                let diff = idx - activeIndex;
+                
+                // Circular scroll wrapping
+                if (diff < -2) diff += collection.length;
+                if (diff > 2) diff -= collection.length;
+
+                const isCenter = (idx === activeIndex);
+                const card = document.createElement('div');
+                
+                card.className = `absolute w-[220px] sm:w-[300px] h-[260px] sm:h-[360px] cursor-pointer transition-all duration-1000 ease-out flex items-center justify-center group`;
+                
+                let transform = '';
+                let zIndex = 10 - Math.abs(diff);
+                let opacity = 1;
+                let filter = 'brightness(0.12) blur(3px)';
+
+                if (diff === 0) {
+                    transform = 'translateZ(140px) rotateY(0deg) scale(1.1)';
+                    filter = 'brightness(1) drop-shadow(0 25px 45px rgba(0,0,0,0.65))';
+                } else if (diff === -1 || (diff === collection.length - 1 && activeIndex === 0)) {
+                    transform = 'translateX(-120px) translateZ(-50px) rotateY(25deg) scale(0.85)';
+                } else if (diff === 1 || (diff === -collection.length + 1 && activeIndex === collection.length - 1)) {
+                    transform = 'translateX(120px) translateZ(-50px) rotateY(-25deg) scale(0.85)';
+                } else {
+                    opacity = 0;
+                    transform = 'translateZ(-180px)';
+                }
+
+                card.style.transform = transform;
+                card.style.zIndex = zIndex;
+                card.style.opacity = opacity;
+                card.style.filter = filter;
+
+                card.onclick = (e) => {
+                    e.stopPropagation();
+                    if (isCenter) {
+                        enterChamberRoom();
+                    } else {
+                        activeIndex = idx;
+                        render3DDesk();
+                    }
+                };
+
+                // Floating frame structure incorporating blueprints on hover
+                card.innerHTML = `
+                    <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                        <!-- Raw Picture Frame Image -->
+                        <img src="${item.frameUrl}" alt="${item.name}" class="w-full h-full object-contain pointer-events-none select-none transition-all duration-700 group-hover:opacity-[0.05] group-hover:scale-105" onerror="triggerEmergencyRoom(this)">
+                        
+                        <!-- Mathematical golden ratio and blueprint drawings inside frame bounds -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-4">
+                            <svg class="w-24 h-24 text-champagne-500/35 animate-pulse absolute pointer-events-none" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="0.35">
+                                <circle cx="50" cy="50" r="38" stroke-dasharray="2,2"/>
+                                <rect x="25" y="25" width="50" height="50"/>
+                                <line x1="0" y1="0" x2="100" y2="100"/>
+                            </svg>
+                            <span class="font-calligraphy text-4xl text-champagne-300 relative z-10 transform -rotate-12">${item.name}</span>
+                            <span class="text-[7px] text-champagne-400 font-cinzel tracking-widest uppercase mt-3">EXHIBIT ${item.dates}</span>
+                        </div>
+                    </div>
+                `;
+
+                anchor.appendChild(card);
+
+                // Elegant indicator markers
+                const dot = document.createElement('button');
+                dot.className = `w-1.5 h-1.5 rounded-full border border-champagne-500/40 transition-all duration-300 focus:outline-none ${isCenter ? 'bg-champagne-500 w-4' : 'bg-transparent'}`;
+                dot.onclick = (e) => {
+                    e.stopPropagation();
+                    activeIndex = idx;
+                    render3DDesk();
+                };
+                dots.appendChild(dot);
+            });
+
+            // Sync dynamic labels at top desk
+            const currentItem = collection[activeIndex];
+            document.getElementById('active-artist-tag').textContent = currentItem.name;
+            document.getElementById('active-artist-era').textContent = `${currentItem.era} • ${currentItem.dates}`;
+        }
+
+        function changeFrame(direction) {
+            activeIndex = (activeIndex + direction + collection.length) % collection.length;
+            render3DDesk();
+        }
+
+        // Trigger gorgeous left-aligned error page if assets or frame images fail to load
+        function triggerEmergencyRoom(imgEl) {
+            console.error("Asset failed to retrieve. Opening visual restoration room...");
+            navigateTo('error');
+        }
+
+        // Mouse displacement for subtle 3D parallax coordinates tilt
+        const sceneEl = document.getElementById('room-gallery');
+        const tiltEl = document.querySelector('.tilt-wrapper');
+        
+        sceneEl.addEventListener('mousemove', (e) => {
+            const rect = sceneEl.getBoundingClientRect();
+            const xVal = e.clientX - rect.left - (rect.width / 2);
+            const yVal = e.clientY - rect.top - (rect.height / 2);
+            
+            const rotateX = -(yVal / rect.height) * 16;
+            const rotateY = (xVal / rect.width) * 16;
+            
+            const targetTilt = document.querySelector('.tilt-wrapper');
+            if (targetTilt) {
+                targetTilt.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            }
+        });
+
+        sceneEl.addEventListener('mouseleave', () => {
+            const targetTilt = document.querySelector('.tilt-wrapper');
+            if (targetTilt) {
+                targetTilt.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            }
+        });
+
+        // Swipe support
+        let touchStart = 0;
+        sceneEl.addEventListener('touchstart', e => {
+            touchStart = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        sceneEl.addEventListener('touchend', e => {
+            let touchEnd = e.changedTouches[0].screenX;
+            if (touchEnd < touchStart - 50) changeFrame(1);
+            if (touchEnd > touchStart + 50) changeFrame(-1);
+        }, {passive: true});
+    </script>
+
+    <!-- INTERACTIVE PAGE NAVIGATION ENGINE -->
+    <script>
+        function navigateTo(targetRoom) {
+            const wipe = document.getElementById('scenic-wipe');
+            wipe.classList.remove('translate-y-full');
+            wipe.classList.add('translate-y-0');
+
+            setTimeout(() => {
+                // Hide and translate all sections completely off-screen
+                ['gallery', 'exhibition', 'dossier', 'contact', 'error'].forEach(id => {
+                    const el = document.getElementById(`room-${id}`);
+                    if (el) {
+                        el.classList.add('hidden');
+                        el.classList.remove('flex');
+                        el.classList.add('translate-x-full');
+                        el.classList.remove('translate-x-0');
+                    }
+                });
+
+                // Clear button active indicators
+                ['gallery-btn', 'dossier-btn', 'contact-btn', 'error-btn'].forEach(id => {
+                    const btn = document.getElementById(`nav-${id}`);
+                    if (btn) btn.classList.remove('text-champagne-300', 'font-semibold');
+                });
+
+                // Display and center targeted room completely
+                const activeEl = document.getElementById(`room-${targetRoom}`);
+                if (activeEl) {
+                    activeEl.classList.remove('hidden');
+                    activeEl.classList.add('flex');
+                    activeEl.classList.remove('translate-x-full');
+                    activeEl.classList.add('translate-x-0');
+                }
+
+                const activeBtn = document.getElementById(`nav-${targetRoom}-btn`);
+                if (activeBtn) activeBtn.classList.add('text-champagne-300', 'font-semibold');
+
+                wipe.classList.remove('translate-y-0');
+                wipe.classList.add('translate-y-full');
+            }, 600);
+        }
+
+        // Open chamber collection area
+        function enterChamberRoom() {
+            const artist = collection[activeIndex];
+
+            document.getElementById('active-chamber-heading').textContent = `${artist.name} Chamber`;
+            document.getElementById('active-chamber-bio').textContent = `"${artist.pitch}"`;
+
+            const wall = document.getElementById('chamber-installations-wall');
+            if(wall) {
+                wall.innerHTML = '';
+
+                artist.paintings.forEach((art, idx) => {
+                    const itemContainer = document.createElement('div');
+                    
+                    // Staggered gallery layout
+                    const staggerValue = idx % 2 === 0 ? 'translate-y-0' : 'md:translate-y-8';
+                    itemContainer.className = `flex flex-col items-center space-y-4 bg-obsidian-950/70 p-6 rounded border border-champagne-500/10 hover:border-champagne-500/25 transition-all duration-500 shadow-2xl group ${staggerValue}`;
+                    
+                    const fallbackImg = getBlueprintFallback(art.title, artist.name);
+
+                    itemContainer.innerHTML = `
+                        <div class="relative w-full aspect-[4/5] flex items-center justify-center p-4 rounded overflow-hidden">
+                            <!-- Drawing backdrop guidelines -->
+                            <div class="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center">
+                                <svg class="w-20 h-20 text-white" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="0.2">
+                                    <rect x="10" y="10" width="80" height="80" />
+                                    <line x1="0" y1="50" x2="100" y2="50"/>
+                                </svg>
+                            </div>
+                            
+                            <span class="absolute top-2 left-2 font-calligraphy text-lg text-champagne-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                Sketch No. 0${idx + 1}
+                            </span>
+
+                            <!-- Masterpiece display frame -->
+                            <div onclick="openMasterpiece(${idx})" class="p-2.5 bg-obsidian-900 border border-champagne-500/15 shadow-2xl cursor-zoom-in transition-all duration-700 group-hover:scale-105 relative">
+                                <img class="max-h-[180px] object-contain border border-obsidian-950 bg-obsidian-900 transition-opacity duration-700 group-hover:opacity-15" 
+                                     src="${art.imageUrl}" 
+                                     alt="${art.title}" 
+                                     onerror="this.onerror=null; this.src='${fallbackImg}';">
+                                
+                                <!-- Drawing blueprint revealed on hover -->
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center bg-obsidian-950/95 pointer-events-none p-2 text-center">
+                                    <svg class="w-12 h-12 text-champagne-400/30 mx-auto animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.4">
+                                        <circle cx="50" cy="50" r="30"/>
+                                        <line x1="10" y1="10" x2="90" y2="90"/>
+                                    </svg>
+                                    <p class="font-calligraphy text-2xl text-champagne-300 mt-2">Skeletal Layer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brass Plate text label -->
+                        <div onclick="openMasterpiece(${idx})" class="w-full text-center bg-obsidian-900/95 border border-champagne-500/10 hover:border-champagne-500/25 py-3 px-4 rounded shadow-2xl cursor-pointer transition-all duration-300">
+                            <h4 class="font-cinzel text-[10px] text-champagne-100 font-semibold tracking-wider truncate">${art.title}</h4>
+                            <p class="text-[7px] text-champagne-500 font-sans tracking-[0.2em] uppercase mt-1">${art.year}</p>
+                        </div>
+                    `;
+                    wall.appendChild(itemContainer);
+                });
+            }
+
+            navigateTo('exhibition');
+        }
+
+        function exitChamber() {
+            navigateTo('gallery');
+        }
+
+        // Spotlight modal zooms
+        function openMasterpiece(artIndex) {
+            const artist = collection[activeIndex];
+            const art = artist.paintings[artIndex];
+
+            const zoomImg = document.getElementById('zoom-painting-img');
+            if(zoomImg) {
+                zoomImg.src = art.imageUrl;
+                
+                // Apply blueprint drawing dynamic fallback if main fails in zoom container
+                const fallbackImg = getBlueprintFallback(art.title, artist.name);
+                zoomImg.onerror = function() {
+                    this.onerror = null;
+                    this.src = fallbackImg;
+                };
+            }
+
+            document.getElementById('zoom-painting-title').textContent = art.title;
+            document.getElementById('zoom-painting-span').textContent = `CIRCULATION • ${art.year}`;
+            document.getElementById('zoom-painting-analysis').textContent = art.analysis;
+            document.getElementById('zoom-painting-medium').textContent = art.medium;
+            document.getElementById('zoom-painting-location').textContent = art.location;
+
+            const modal = document.getElementById('masterpiece-zoomer');
+            if(modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMasterpiece() {
+            const modal = document.getElementById('masterpiece-zoomer');
+            if(modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+            document.body.style.overflow = '';
+        }
+    </script>
+
+    <!-- FORM CORRESPONDENCE & LEDGER LOGGER SCRIPTS -->
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('input-name').value;
+            const msg = document.getElementById('input-message').value;
+
+            const alertBox = document.getElementById('stamp-alert');
+            const seal = document.getElementById('wax-seal-graphic');
+            if(alertBox) alertBox.classList.remove('hidden');
+
+            setTimeout(() => {
+                if(seal) seal.classList.add('applied');
+            }, 60);
+
+            const ledger = document.getElementById('live-ledger-rows');
+            if(ledger) {
+                const log = document.createElement('div');
+                log.className = "bg-champagne-100/40 border-l-2 border-champagne-500 p-2.5 rounded text-[10px] italic font-cormorant text-obsidian-900 animate__animated animate__fadeInDown";
+                log.innerHTML = `
+                    <p>"${msg}"</p>
+                    <p class="text-right text-[7px] font-cinzel text-champagne-700 tracking-wider font-semibold mt-1">— ${name}, Visitor</p>
+                `;
+
+                ledger.insertBefore(log, ledger.firstChild);
+            }
+            
+            document.getElementById('correspondence-form').reset();
+
+            setTimeout(() => {
+                if(alertBox) alertBox.classList.add('hidden');
+                if(seal) seal.classList.remove('applied');
+            }, 6000);
+        }
+
+        window.onload = function() {
+            render3DDesk();
+            
+            // Listen for any unhandled image loading errors to gracefully prompt the restoration/error status chamber
+            window.addEventListener('error', function(e) {
+                if (e.target && e.target.tagName === 'IMG') {
+                    console.log("Global Asset Failure caught:", e.target.src);
+                }
+            }, true);
+        }
+    </script>
+</body>
+</html>
