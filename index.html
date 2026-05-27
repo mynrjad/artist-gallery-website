@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection of Stories — Curator Retrospective</title>
-    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Luxury & Editorial Font Pairings -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -39,41 +37,21 @@
         ::-webkit-scrollbar-thumb { background: #A37E65; border-radius: 1px; }
         ::-webkit-scrollbar-thumb:hover { background: #DAC6B5; }
 
-        .museum-wallpaper {
-            background-image: repeating-linear-gradient(90deg, rgba(24, 23, 22, 0.35) 0px, rgba(24, 23, 22, 0.35) 30px, rgba(17, 16, 15, 0.5) 30px, rgba(17, 16, 15, 0.5) 60px);
-        }
-
-        .aged-parchment-layer {
-            background-color: #FAF6F0;
-            background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.03) 100%);
-            position: relative;
-        }
-        .aged-parchment-layer::after {
-            content: ""; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.05; pointer-events: none; z-index: 5;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
+        .museum-wallpaper { background-image: repeating-linear-gradient(90deg, rgba(24, 23, 22, 0.35) 0px, rgba(24, 23, 22, 0.35) 30px, rgba(17, 16, 15, 0.5) 30px, rgba(17, 16, 15, 0.5) 60px); }
+        .aged-parchment-layer { background-color: #FAF6F0; background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.03) 100%); position: relative; }
+        .aged-parchment-layer::after { content: ""; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.05; pointer-events: none; z-index: 5; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
         .perspective-desk { perspective: 2500px; }
         .tilt-wrapper { transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
         .room-shutter { transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.9s ease; }
-        .wax-seal-drop {
-            transform: scale(2.5) rotate(-15deg); opacity: 0; filter: blur(4px);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, filter 0.2s;
-        }
+        .wax-seal-drop { transform: scale(2.5) rotate(-15deg); opacity: 0; filter: blur(4px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, filter 0.2s; }
         .wax-seal-drop.applied { transform: scale(1) rotate(6deg); opacity: 1; filter: blur(0); }
         .no-select { user-select: none; -webkit-user-drag: none; }
         .carousel-scaler { transform: scale(1); transform-origin: center center; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
         @media (min-width: 1024px) { .carousel-scaler { transform: scale(1.15); } }
         @media (min-width: 1440px) { .carousel-scaler { transform: scale(1.35); } }
         @media (min-width: 1920px) { .carousel-scaler { transform: scale(1.6); } }
-        @media (min-width: 2560px) { 
-            .carousel-scaler { transform: scale(2.6); }
-            #active-artist-tag { font-size: 4.5rem !important; }
-        }
-        @media (min-width: 3840px) {
-            .carousel-scaler { transform: scale(4.0); }
-            #active-artist-tag { font-size: 6.5rem !important; }
-        }
+        @media (min-width: 2560px) { .carousel-scaler { transform: scale(2.6); } }
+        @media (min-width: 3840px) { .carousel-scaler { transform: scale(4.0); } }
     </style>
 </head>
 <body class="h-full bg-obsidian-950 text-champagne-900 font-sans antialiased overflow-hidden no-select">
@@ -83,47 +61,35 @@
             <svg class="w-16 h-16 text-champagne-500/20 mx-auto animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor">
                 <circle cx="50" cy="50" r="40" stroke-width="0.3" stroke-dasharray="4,4"/>
                 <circle cx="50" cy="50" r="25" stroke-width="0.5"/>
-                <line x1="50" y1="0" x2="50" y2="100" stroke-width="0.2"/>
             </svg>
-            <p class="font-cinzel text-[9px] text-champagne-400 tracking-[0.4em] uppercase">Recalibrating Exhibition Coordinates...</p>
+            <p class="font-cinzel text-[9px] text-champagne-400 tracking-[0.4em] uppercase">Recalibrating...</p>
         </div>
     </div>
 
     <div class="h-full w-full flex flex-col relative z-20">
-        <header class="w-full h-16 border-b border-champagne-500/10 bg-obsidian-950/90 backdrop-blur-md px-6 md:px-12 flex justify-between items-center z-40 shrink-0 gap-4">
-            <div class="flex items-center space-x-4 cursor-pointer shrink-0" onclick="navigateTo('gallery')">
-                <span class="text-champagne-400 font-cinzel text-xs tracking-[0.3em] uppercase font-semibold">Collection of Stories</span>
-            </div>
-            <div class="relative w-full max-w-[200px] z-50">
-                <input type="text" id="artist-search" oninput="filterArtists(this.value)" placeholder="SEARCH ARTIST..." class="w-full bg-obsidian-950/95 border border-champagne-500/20 rounded py-1.5 pl-8 pr-3 text-[8px] text-champagne-100 tracking-[0.2em] font-cinzel focus:border-champagne-500/60 outline-none transition-all placeholder:text-champagne-500/30">
-                <div id="search-results-dropdown" class="absolute left-0 right-0 mt-1 bg-obsidian-950/95 border border-champagne-500/25 rounded hidden max-h-48 overflow-y-auto z-50 text-[8px] font-cinzel tracking-wider text-left shadow-2xl"></div>
-            </div>
-            <nav class="flex space-x-8 text-[9px] font-cinzel tracking-[0.25em] text-champagne-500/70 shrink-0">
-                <button onclick="navigateTo('gallery')" id="nav-gallery-btn" class="hover:text-champagne-300 uppercase font-medium">Carousel</button>
-                <button onclick="navigateTo('dossier')" id="nav-dossier-btn" class="hover:text-champagne-300 uppercase font-medium">Dossier</button>
+        <header class="w-full h-16 border-b border-champagne-500/10 bg-obsidian-950/90 backdrop-blur-md px-12 flex justify-between items-center z-40 shrink-0">
+            <span class="text-champagne-400 font-cinzel text-xs tracking-[0.3em] uppercase font-semibold cursor-pointer" onclick="navigateTo('gallery')">Collection of Stories</span>
+            <nav class="flex space-x-8 text-[9px] font-cinzel tracking-[0.25em] text-champagne-500/70">
+                <button onclick="navigateTo('gallery')" id="nav-gallery-btn" class="hover:text-champagne-300 uppercase">Gallery</button>
+                <button onclick="navigateTo('dossier')" id="nav-dossier-btn" class="hover:text-champagne-300 uppercase">Dossier</button>
             </nav>
         </header>
 
         <div class="flex-grow w-full overflow-hidden relative">
-            <!-- Gallery Room -->
-            <div id="room-gallery" class="absolute inset-0 w-full h-full flex flex-col transition-all duration-1000 transform translate-x-0 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(9, 8, 8, 0.95) 0%, rgba(9, 8, 8, 0.6) 100%), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
-                <div class="perspective-desk relative w-full h-full flex flex-col items-center justify-center">
-                    <div class="absolute top-[8%] text-center">
-                        <span id="active-artist-tag" class="font-calligraphy text-4xl sm:text-5xl text-champagne-400 block"></span>
-                        <span id="active-artist-era" class="font-cinzel text-[8px] tracking-[0.3em] uppercase text-champagne-500/60 mt-1.5 block"></span>
-                    </div>
-                    <div class="carousel-scaler">
-                        <div id="floating-frames-anchor" class="tilt-wrapper relative w-[300px] h-[400px] flex items-center justify-center"></div>
-                    </div>
-                    <div class="absolute bottom-8 flex space-x-2" id="pagination-dots-container"></div>
+            <div id="room-gallery" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center transition-all duration-1000 transform translate-x-0 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(9, 8, 8, 0.95) 0%, rgba(9, 8, 8, 0.6) 100%), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
+                <div class="absolute top-[10%] text-center">
+                    <span id="active-artist-tag" class="font-calligraphy text-5xl text-champagne-400 block"></span>
+                    <span id="active-artist-era" class="font-cinzel text-[8px] tracking-[0.3em] uppercase text-champagne-500/60 mt-1.5 block"></span>
+                </div>
+                <div class="carousel-scaler">
+                    <div id="floating-frames-anchor" class="tilt-wrapper relative w-[300px] h-[400px] flex items-center justify-center"></div>
                 </div>
             </div>
 
-            <!-- Exhibition Room -->
             <div id="room-exhibition" class="absolute inset-0 w-full h-full flex-col transition-all duration-1000 transform translate-x-full hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(9, 8, 8, 0.96), rgba(9, 8, 8, 0.96)), url('https://github.com/mynrjad/artist-gallery-website/blob/main/artistwp.png?raw=true');">
-                <div class="w-full h-14 border-b border-champagne-500/15 flex justify-between items-center px-12">
-                    <button onclick="navigateTo('gallery')" class="text-champagne-400 font-cinzel text-[9px] uppercase tracking-[0.2em]">Back</button>
-                    <span id="active-chamber-heading" class="font-cinzel text-xs text-champagne-200 tracking-[0.25em] uppercase font-bold"></span>
+                <div class="w-full h-14 border-b border-champagne-500/15 flex items-center px-12">
+                    <button onclick="navigateTo('gallery')" class="text-champagne-400 font-cinzel text-[9px] uppercase tracking-[0.2em]">← Back</button>
+                    <span id="active-chamber-heading" class="ml-8 font-cinzel text-xs text-champagne-200 tracking-[0.25em] uppercase font-bold"></span>
                 </div>
                 <div class="flex-grow overflow-y-auto p-12">
                     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12" id="chamber-installations-wall"></div>
@@ -132,10 +98,9 @@
         </div>
     </div>
 
-    <!-- Masterpiece Zoomer Modal -->
     <div id="masterpiece-zoomer" class="hidden fixed inset-0 z-50 bg-obsidian-950/98 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="relative bg-champagne-100 max-w-4xl w-full rounded border border-champagne-500/20 shadow-2xl overflow-hidden">
-            <button onclick="closeMasterpiece()" class="absolute top-4 right-4 z-40 text-obsidian-950"><i class="fa-solid fa-xmark"></i></button>
+        <div class="relative bg-champagne-100 max-w-4xl w-full rounded border border-champagne-500/20 shadow-2xl overflow-hidden animate__animated animate__zoomIn">
+            <button onclick="closeMasterpiece()" class="absolute top-4 right-4 z-40 text-obsidian-950 p-2"><i class="fa-solid fa-xmark"></i></button>
             <div class="grid grid-cols-1 md:grid-cols-12">
                 <div class="md:col-span-6 bg-obsidian-950 p-6 flex items-center justify-center">
                     <img id="zoom-painting-img" class="max-h-[46vh] object-contain" src="" alt="Spotlight Artwork">
@@ -143,7 +108,7 @@
                 <div class="md:col-span-6 p-8">
                     <h3 id="zoom-painting-title" class="font-cinzel text-lg text-obsidian-950 font-semibold"></h3>
                     <p id="zoom-painting-span" class="text-champagne-700 font-cinzel text-[8px] uppercase tracking-widest mt-1"></p>
-                    <p id="zoom-painting-analysis" class="text-obsidian-900 text-sm mt-6 font-cormorant italic"></p>
+                    <p id="zoom-painting-analysis" class="text-obsidian-900 text-sm mt-6 font-cormorant italic leading-relaxed"></p>
                 </div>
             </div>
         </div>
@@ -151,78 +116,48 @@
 
     <script>
         const collection = [
-            {
-                id: "bacon", name: "Francis Bacon", dates: "1909 – 1992", era: "Post-War Existentialism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bacon%20With%20Frame.png?raw=true", pitch: "...",
-                paintings: [
-                    { title: "Study after Velázquez", year: "1953", medium: "Oil", location: "Iowa", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/study%20of%20velazques.jpg?raw=true", analysis: "..." },
-                    { title: "Three Studies", year: "1944", medium: "Oil", location: "London", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/three%20figures.png?raw=true", analysis: "..." },
-                    { title: "Self-Portrait", year: "1971", medium: "Oil", location: "Private", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/francis-bacon--self-portrait.jpg?raw=true", analysis: "..." }
-                ]
-            },
-            {
-                id: "davinci", name: "Leonardo Da Vinci", dates: "1452 – 1519", era: "High Renaissance", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Da%20Vinci%20With%20Frame.png?raw=true", pitch: "...",
-                paintings: [
-                    { title: "Mona Lisa", year: "1503", medium: "Oil", location: "Paris", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Mona_Lisa.png?raw=true", analysis: "..." },
-                    { title: "The Last Supper", year: "1495", medium: "Tempera", location: "Milan", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/last%20supper.jpg?raw=true", analysis: "..." },
-                    { title: "Lady with an Ermine", year: "1489", medium: "Oil", location: "Kraków", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Lady-with-an-Ermine-by-Leonardo-Da-Vinci-23-by-15-oil-on-canvas.jpg?raw=true", analysis: "..." }
-                ]
-            },
-            {
-                id: "monet", name: "Claude Monet", dates: "1840 – 1926", era: "French Impressionism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true", pitch: "...",
-                paintings: [
-                    { title: "Impression, Sunrise", year: "1872", medium: "Oil", location: "Paris", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Impression%20sunrise.png?raw=true", analysis: "..." },
-                    { title: "Water Lilies", year: "1916", medium: "Oil", location: "Paris", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Water%20lillies.png?raw=true", analysis: "..." },
-                    { title: "Woman with a Parasol", year: "1875", medium: "Oil", location: "Washington", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/woman%20with%20parasol.jpg?raw=true", analysis: "..." }
-                ]
-            },
-            {
-                id: "vangogh", name: "Vincent Van Gogh", dates: "1853 – 1890", era: "Post-Impressionism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Van%20Gogh%20With%20Frame.png?raw=true", pitch: "...",
-                paintings: [
-                    { title: "The Starry Night", year: "1889", medium: "Oil", location: "New York", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/starry%20night.jpg?raw=true", analysis: "..." },
-                    { title: "Sunflowers", year: "1888", medium: "Oil", location: "Amsterdam", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bouquet-of-Sunflowers-1880-Claude-Monet-Oil-Painting.jpg?raw=true", analysis: "..." },
-                    { title: "Cafe Terrace", year: "1888", medium: "Oil", location: "Otterlo", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/vincent%20cafe%20terrance.png?raw=true", analysis: "..." }
-                ]
-            },
-            {
-                id: "dali", name: "Salvador Dali", dates: "1904 – 1989", era: "Spanish Surrealism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true", pitch: "...",
-                paintings: [
-                    { title: "Persistence of Memory", year: "1931", medium: "Oil", location: "New York", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-persistence-of-memory-1931.jpg?raw=true", analysis: "..." },
-                    { title: "The Elephants", year: "1948", medium: "Oil", location: "Private", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-elephants-large.jpg?raw=true", analysis: "..." },
-                    { title: "Narcissus", year: "1937", medium: "Oil", location: "London", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/metamorphosis%20of%20narcissus.jpg?raw=true", analysis: "..." }
-                ]
-            }
+            { id: "bacon", name: "Francis Bacon", dates: "1909 – 1992", era: "Post-War Existentialism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bacon%20With%20Frame.png?raw=true", paintings: [
+                { title: "Study after Velázquez", year: "1953", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/study%20of%20velazques.jpg?raw=true", analysis: "A study of isolation and screaming torment." },
+                { title: "Three Studies", year: "1944", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/three%20figures.png?raw=true", analysis: "Distorted, screaming mythological beast structures." },
+                { title: "Self-Portrait", year: "1971", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/francis-bacon--self-portrait.jpg?raw=true", analysis: "Painted in absolute isolation." }
+            ]},
+            { id: "davinci", name: "Leonardo Da Vinci", dates: "1452 – 1519", era: "High Renaissance", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Da%20Vinci%20With%20Frame.png?raw=true", paintings: [
+                { title: "Mona Lisa", year: "1503", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Mona_Lisa.png?raw=true", analysis: "Leonardo's signature sfumato brushwork." },
+                { title: "The Last Supper", year: "1495", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/last%20supper.jpg?raw=true", analysis: "Monumental achievement in perspective." },
+                { title: "Lady with an Ermine", year: "1489", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Lady-with-an-Ermine-by-Leonardo-Da-Vinci-23-by-15-oil-on-canvas.jpg?raw=true", analysis: "Unparalleled ability to map bone structure." }
+            ]},
+            { id: "monet", name: "Claude Monet", dates: "1840 – 1926", era: "French Impressionism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true", paintings: [
+                { title: "Impression, Sunrise", year: "1872", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Impression%20sunrise.png?raw=true", analysis: "Captures the industrial port of Le Havre." },
+                { title: "Water Lilies", year: "1916", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Water%20lillies.png?raw=true", analysis: "Dissolves the traditional horizon line." },
+                { title: "Woman with a Parasol", year: "1875", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/woman%20with%20parasol.jpg?raw=true", analysis: "Sunlight catching fabrics and wind motions." }
+            ]},
+            { id: "vangogh", name: "Vincent Van Gogh", dates: "1853 – 1890", era: "Post-Impressionism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Van%20Gogh%20With%20Frame.png?raw=true", paintings: [
+                { title: "The Starry Night", year: "1889", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/starry%20night.jpg?raw=true", analysis: "Captures the turbulent night sky." },
+                { title: "Sunflowers", year: "1888", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Bouquet-of-Sunflowers-1880-Claude-Monet-Oil-Painting.jpg?raw=true", analysis: "Intense yellow ochres to convey warmth." },
+                { title: "Cafe Terrace", year: "1888", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/vincent%20cafe%20terrance.png?raw=true", analysis: "Contrast of warm gaslit tables." }
+            ]},
+            { id: "dali", name: "Salvador Dali", dates: "1904 – 1989", era: "Spanish Surrealism", frameUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/Dali%20With%20Frame.png?raw=true", paintings: [
+                { title: "Persistence of Memory", year: "1931", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-persistence-of-memory-1931.jpg?raw=true", analysis: "Elastic nature of time." },
+                { title: "The Elephants", year: "1948", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/the-elephants-large.jpg?raw=true", analysis: "Long, thin, arachnid legs." },
+                { title: "Narcissus", year: "1937", imageUrl: "https://github.com/mynrjad/artist-gallery-website/blob/main/metamorphosis%20of%20narcissus.jpg?raw=true", analysis: "Double-image method." }
+            ]}
         ];
 
         let activeIndex = 1;
 
         function render3DDesk() {
             const anchor = document.getElementById('floating-frames-anchor');
-            const dots = document.getElementById('pagination-dots-container');
-            if(!anchor || !dots) return;
-            anchor.innerHTML = ''; dots.innerHTML = '';
-
+            anchor.innerHTML = '';
             collection.forEach((item, idx) => {
                 let diff = idx - activeIndex;
                 if (diff < -2) diff += collection.length;
                 if (diff > 2) diff -= collection.length;
-
                 const card = document.createElement('div');
-                card.className = `absolute w-[300px] h-[360px] cursor-pointer transition-all duration-1000 ease-out flex items-center justify-center`;
-                
-                let transform = '';
-                let zIndex = 10 - Math.abs(diff);
-                let opacity = 1;
-
-                if (diff === 0) { transform = 'translateZ(140px) scale(1.1)'; } 
-                else if (diff === -1) { transform = 'translateX(-120px) translateZ(-50px) scale(0.85)'; }
-                else if (diff === 1) { transform = 'translateX(120px) translateZ(-50px) scale(0.85)'; }
-                else { opacity = 0; transform = 'translateZ(-180px)'; }
-
+                card.className = `absolute w-[300px] h-[400px] cursor-pointer transition-all duration-1000 flex items-center justify-center`;
+                let transform = diff === 0 ? 'translateZ(140px) scale(1.1)' : (diff === -1 ? 'translateX(-120px) translateZ(-50px) scale(0.85)' : (diff === 1 ? 'translateX(120px) translateZ(-50px) scale(0.85)' : 'translateZ(-180px)'));
                 card.style.transform = transform;
-                card.style.zIndex = zIndex;
-                card.style.opacity = opacity;
+                card.style.opacity = (Math.abs(diff) > 1) ? 0 : 1;
                 card.onclick = () => { if(idx === activeIndex) enterChamberRoom(); else { activeIndex = idx; render3DDesk(); } };
-
                 card.innerHTML = `<img src="${item.frameUrl}" class="w-full h-full object-contain">`;
                 anchor.appendChild(card);
             });
@@ -239,13 +174,14 @@
                 const item = document.createElement('div');
                 item.className = "flex flex-col items-center cursor-pointer";
                 item.onclick = () => openMasterpiece(idx);
+                // MODIFIED: Only image, title, and year are rendered.
                 item.innerHTML = `
-                    <div class="w-full overflow-hidden border border-champagne-500/20 p-2 hover:border-champagne-500 transition-all">
-                        <img src="${art.imageUrl}" class="w-full h-auto">
+                    <div class="w-full overflow-hidden border border-champagne-500/20 p-2 hover:border-champagne-500 transition-all duration-300">
+                        <img src="${art.imageUrl}" class="w-full h-auto object-cover">
                     </div>
                     <div class="w-full text-center py-4">
-                        <h4 class="font-cinzel text-[10px] uppercase tracking-wider font-semibold">${art.title}</h4>
-                        <p class="text-[8px] text-champagne-700 uppercase tracking-widest mt-1">${art.year}</p>
+                        <h4 class="font-cinzel text-[10px] uppercase tracking-wider font-semibold text-champagne-100">${art.title}</h4>
+                        <p class="text-[8px] text-champagne-600 uppercase tracking-widest mt-1">${art.year}</p>
                     </div>
                 `;
                 wall.appendChild(item);
@@ -269,7 +205,6 @@
         }
 
         function closeMasterpiece() { document.getElementById('masterpiece-zoomer').classList.add('hidden'); }
-        
         window.onload = render3DDesk;
     </script>
 </body>
